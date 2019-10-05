@@ -1,18 +1,20 @@
-import React, {Component} from 'react';
-import InitAutocomplete from './SearchBox';
+import React, { Component } from 'react';
+import ReactDependentScript from "react-dependent-script";
+import "./Map.css"
+import Map from "./Map";
 
 class Home extends Component {
-	render(){
-		return(
-			<div>
-				<InitAutocomplete
-				    google={this.props.google}
-				    center={{lat: 18.5204, lng: 73.8567}}
-				    height='300px'
-				    zoom={15} />
-			</div>
-		);
-	}
+  render() {
+    return(
+        <ReactDependentScript
+          scripts={[
+            "https://maps.googleapis.com/maps/api/js?key=AIzaSyCk9lUgqQBF_EojnEsDkspDDp-ozqf1rnA"
+          ]}
+        >
+          <Map center={{ lat: -34.706501, lng: -58.2807187 }} zoom={15} />
+        </ReactDependentScript>
+    );
+  }
 }
 
 export default Home;

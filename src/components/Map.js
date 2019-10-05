@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // var map;
-class Map extends Component {
+export default class Map extends Component {
   componentDidMount() {
     this.initMap();
   }
@@ -21,5 +21,3 @@ class Map extends Component {
     return <div id="map" />;
   }
 }
-
-export default Map;
