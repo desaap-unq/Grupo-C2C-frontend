@@ -5,6 +5,7 @@
   "dependencies": {
     "core-js": "^3.2.1",
     "react": "^16.9.0",
+    "react-dependent-script": "^1.1.2",
     "react-dom": "^16.9.0",
     "react-geocode": "^0.2.0",
     "react-gmaps": "^1.9.0",
