@@ -8,7 +8,7 @@ class Home extends Component {
     return(
         <ReactDependentScript
           scripts={[
-            "https://maps.googleapis.com/maps/api/js?key=AIzaSyCk9lUgqQBF_EojnEsDkspDDp-ozqf1rnA"
+            "https://maps.googleapis.com/maps/api/js?key=AIzaSyCk9lUgqQBF_EojnEsDkspDDp-ozqf1rnA&libraries=places"
           ]}
         >
           <Map center={{ lat: -34.706501, lng: -58.2807187 }} zoom={15} />
