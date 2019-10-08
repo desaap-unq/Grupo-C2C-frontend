@@ -6,40 +6,33 @@ class Map extends Component {
     this.initAutocomplete();
   }
 
-  // initMap() {
-  //   let options = {
-  //     zoom: this.props.zoom,
-  //     center: this.props.center,
-  //     mapTypeId: 'roadmap'
-  //   };
-  //   //map = 
-  //   new window.google.maps.Map(
-  //     document.getElementById('map'), options);
-  // }
-
   initAutocomplete() {
     let options = {
       zoom: this.props.zoom,
       center: this.props.center,
-      mapTypeId: 'roadmap'
+      // mapTypeId: 'roadmap'
     };
 
     let map = new window.google.maps.Map(
       document.getElementById('map'), options);
 
-    // Create the search box and link it to the UI element.
-    var input = document.getElementById('pac-input');
-    let searchBox = new window.google.maps.places.SearchBox(input);
-    map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(input);
+    new window.google.maps.Marker({position: options.center, map: map});
 
-    // Bias the SearchBox results towards current map's viewport.
-    map.addListener('bounds_changed', function() {
-      searchBox.setBounds(map.getBounds());
-    });
+    new window.google.maps.InfoWindow();
+
+    // Create the search box and link it to the UI element.
+    let input = document.getElementById('pac-input');
+    let searchBox = new window.google.maps.places.SearchBox(input);
+    // map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    // // // // Bias the SearchBox results towards current map's viewport.
+    // map.addListener('bounds_changed', function() {
+    //   searchBox.setBounds(map.getBounds());
+    // });
 
     // var markers = [];
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
+    // // Listen for the event fired when the user selects a prediction and retrieve
+    // // more details for that place.
     // searchBox.addListener('places_changed', function() {
     //   var places = searchBox.getPlaces();
 
