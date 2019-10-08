@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({text}: any) => <div>{text}</div>;
+const AnyReactComponent = ({text}) => <div>{text}</div>;
 
-const SimpleMap = (props: any) => {
+const SimpleMap = (props) => {
     const [center, setCenter] = useState({lat: 11.0168, lng: 76.9558 });
     const [zoom, setZoom] = useState(11);
     return (
