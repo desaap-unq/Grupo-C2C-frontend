@@ -13,6 +13,7 @@ import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import Home from "pages/Home";
+import HomePage from "pages/home/HomePage";
 // others
 
 ReactDOM.render(
@@ -20,6 +21,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/index" render={props => <Index {...props} />} />
       <Route path="/home" render={props => <Home {...props} />} />
+      <Route path="/homePage" render={props => <HomePage {...props} />} />
       <Route
         path="/nucleo-icons"
         render={props => <NucleoIcons {...props} />}
