@@ -36,9 +36,9 @@ import {
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
-import LandingPageHeader from "components/Headers/LandingPageHeader.js";
-import DemoFooter from "components/Footers/DemoFooter.js";
+import ExamplesNavbar from "../../components/Navbars/ExamplesNavbar.js";
+import LandingPageHeader from "../../components/Headers/LandingPageHeader.js";
+import DemoFooter from "../../components/Footers/DemoFooter.js";
 
 function LandingPage() {
   document.documentElement.classList.remove("nav-open");
@@ -160,7 +160,7 @@ function LandingPage() {
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       <img
                         alt="..."
-                        src={require("assets/img/faces/clem-onojeghuo-3.jpg")}
+                        src={require("../../assets/img/faces/clem-onojeghuo-3.jpg")}
                       />
                     </a>
                   </div>
@@ -211,7 +211,7 @@ function LandingPage() {
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       <img
                         alt="..."
-                        src={require("assets/img/faces/joe-gardner-2.jpg")}
+                        src={require("../../assets/img/faces/joe-gardner-2.jpg")}
                       />
                     </a>
                   </div>
@@ -263,7 +263,7 @@ function LandingPage() {
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       <img
                         alt="..."
-                        src={require("assets/img/faces/erik-lucatero-2.jpg")}
+                        src={require("../../assets/img/faces/erik-lucatero-2.jpg")}
                       />
                     </a>
                   </div>

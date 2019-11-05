@@ -22,7 +22,7 @@ import React from "react";
 import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import ExamplesNavbar from "../../components/Navbars/ExamplesNavbar.js";
 
 function RegisterPage() {
   document.documentElement.classList.remove("nav-open");
@@ -38,7 +38,7 @@ function RegisterPage() {
       <div
         className="page-header"
         style={{
-          backgroundImage: "url(" + require("assets/img/login-image.jpg") + ")"
+          backgroundImage: "url(" + require("../../assets/img/login-image.jpg") + ")"
         }}
       >
         <div className="filter" />
