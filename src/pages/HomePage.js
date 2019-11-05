@@ -5,6 +5,7 @@ import {
     InputGroupText,
     InputGroup,
     Input,
+    Row,
     FormGroup,
     Container
 } from "reactstrap";
@@ -28,33 +29,26 @@ export default class HomePage extends Component {
                         <Container>
                             <div className="title-brand">
                                 <h1 className="presentation-title">Viandas YA</h1>
-                                <div className="fog-low right">
-                                    {/* <FormGroup>
-                                        <Input placeholder="Que comemos!" type="text" />
-                                    </FormGroup> */}
-                                </div>
                             </div>
                             <h2 className="presentation-subtitle text-center">
                                 Make your mark with a Free Bootstrap 4 (Reactstrap) UI Kit!
             </h2>
-                        <InputGroup>
-                            <InputGroupAddon addonType="append">
-                                <Input placeholder="Que comemos!" type="text" ></Input>
-                                <InputGroupText>
-                                    <span className="glyphicon glyphicon-search">
-                                        <i aria-hidden={true} className="fa fa-search" />
-                                    </span>
-                                </InputGroupText>
-                            </InputGroupAddon>
-                        </InputGroup>
+                            <Container>
+                                <InputGroup>
+                                    <Row>
+                                    <InputGroupAddon addonType="append">
+                                        <Input placeholder="Que comemos!" type="text" ></Input>
+                                        <InputGroupText>
+                                            <span className="glyphicon glyphicon-search">
+                                                <i aria-hidden={true} className="fa fa-search" />
+                                            </span>
+                                        </InputGroupText>
+                                    </InputGroupAddon>
+                                    </Row>
+                                </InputGroup>
+                            </Container>
                         </Container>
                     </div>
-                    <div
-                        className="moving-clouds"
-                        style={{
-                            backgroundImage: "url(" + require("../assets/img/clouds.png") + ")"
-                        }}
-                    />
                     <h6 className="category category-absolute">
                         Designed and coded by{" "}
                         <a
@@ -67,8 +61,11 @@ export default class HomePage extends Component {
                                 src={require("../assets/img/creative-tim-white-slim2.png")}
                             />
                         </a>
+
                     </h6>
+
                 </div>
+
             </>
         );
     }
