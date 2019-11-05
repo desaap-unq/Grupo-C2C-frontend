@@ -2,25 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import './index.css';
-// import App from './App';
+
 import * as serviceWorker from './serviceWorker';
 
-// style
+
 import './assets/css/bootstrap.min.css';
 import './assets/css/paper-kit.css';
 import './assets/demo/demo.css';
 
-// pages
+
 import Index from './views/Index';
 import NucleoIcons from './views/NucleoIcons';
 import LandingPage from './views/examples/LandingPage';
 import ProfilePage from './views/examples/ProfilePage';
 import RegisterPage from './views/examples/RegisterPage';
+import HomePage from './pages/HomePage';
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/index" render={props => <Index {...props} />} />,
+      <Route path="/index" render={props => <HomePage {...props} />} />,
+      <Route path="/indexExample" render={props => <Index {...props} />} />,
       <Route
         path="/nucleo-icons"
         render={props => <NucleoIcons {...props} />}
@@ -43,9 +45,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// ReactDOM.render(<Index />, document.getElementById('root'));
-
-// // If you want your app to work offline and load faster, you can change
-// // unregister() to register() below. Note this comes with some pitfalls.
-// // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
