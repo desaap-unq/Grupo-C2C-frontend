@@ -12,6 +12,8 @@ import {
 
 import IndexNavbar from "../components/Navbars/IndexNavbar";
 
+import SearchComponent from "../components/search/searchComponent";
+
 export default class HomePage extends Component {
     render() {
         return (
@@ -33,7 +35,7 @@ export default class HomePage extends Component {
                             <h2 className="presentation-subtitle text-center">
                                 Make your mark with a Free Bootstrap 4 (Reactstrap) UI Kit!
             </h2>
-                            <Container>
+                            {/* <Container>
                                 <InputGroup>
                                     <Row>
                                     <InputGroupAddon addonType="append">
@@ -46,7 +48,8 @@ export default class HomePage extends Component {
                                     </InputGroupAddon>
                                     </Row>
                                 </InputGroup>
-                            </Container>
+                            </Container> */}
+                        <SearchComponent/>
                         </Container>
                     </div>
                     <h6 className="category category-absolute">
