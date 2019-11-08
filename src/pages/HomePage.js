@@ -12,7 +12,7 @@ import {
 
 import IndexNavbar from "../components/Navbars/IndexNavbar";
 
-import SearchComponent from "../components/search/searchComponent";
+import SearchBars from "../components/search/SearchBars";
 
 export default class HomePage extends Component {
     render() {
@@ -49,7 +49,7 @@ export default class HomePage extends Component {
                                     </Row>
                                 </InputGroup>
                             </Container> */}
-                        <SearchComponent/>
+                        <SearchBars/>
                         </Container>
                     </div>
                     <h6 className="category category-absolute">
