@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-// nodejs library that concatenates strings
+
 import classnames from "classnames";
-// reactstrap components
+
 import {
   Button,
   Collapse,
   NavbarBrand,
   InputGroup,
-  Row,
+  Col,
   InputGroupAddon,
   Input,
   InputGroupText,
@@ -17,9 +17,8 @@ import {
   Nav,
   Container
 } from "reactstrap";
-import { thisTypeAnnotation } from "@babel/types";
+
 import {withRouter} from "react-router-dom";
-// import {browserHistory} from "react-router";
 
 
 
@@ -28,34 +27,31 @@ class SearchBars extends Component {
     super(props);
     this.state={food:""};
     this.updateInput =this.updateInput.bind(this);
-    this.logFood =this.logFood.bind(this);
+    this.redirecSearch =this.redirecSearch.bind(this);
   }
   
   updateInput(event){
     this.setState({food: event.target.value});
   }
 
-  logFood(){
-    // browserHistory.push("/indexExample");
-    this.props.history.push("/indexExample");
-    
-    console.log(this.state.food);
+  redirecSearch(){
+    this.props.history.push("/search/" + this.state.food);
   }
 
   render() {
     return (
       <Container>
         <InputGroup>
-          <Row>
+          <Col className="md=12 mt-4">
             <InputGroupAddon addonType="append">
               <Input placeholder="Que comemos!" type="text" value={this.state.food} onChange={this.updateInput} ></Input>
               <InputGroupText>
-                <button className="glyphicon glyphicon-search" onClick={this.logFood}>
+                <button className="glyphicon glyphicon-search" onClick={this.redirecSearch}>
                   <i aria-hidden={true} className="fa fa-search" />
                 </button>
               </InputGroupText>
             </InputGroupAddon>
-          </Row>
+          </Col>
         </InputGroup>
       </Container >
     );

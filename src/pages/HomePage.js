@@ -27,29 +27,16 @@ export default class HomePage extends Component {
                     }}
                 >
                     <div className="filter" />
-                    <div className="content-center">
+                    <div className="content-center mt-0">
                         <Container>
                             <div className="title-brand">
                                 <h1 className="presentation-title">Viandas YA</h1>
                             </div>
-                            <h2 className="presentation-subtitle text-center">
-                                Make your mark with a Free Bootstrap 4 (Reactstrap) UI Kit!
-            </h2>
-                            {/* <Container>
-                                <InputGroup>
-                                    <Row>
-                                    <InputGroupAddon addonType="append">
-                                        <Input placeholder="Que comemos!" type="text" ></Input>
-                                        <InputGroupText>
-                                            <span className="glyphicon glyphicon-search">
-                                                <i aria-hidden={true} className="fa fa-search" />
-                                            </span>
-                                        </InputGroupText>
-                                    </InputGroupAddon>
-                                    </Row>
-                                </InputGroup>
-                            </Container> */}
-                        <SearchBars/>
+                            <h2 className="presentation-subtitle text-center mt-0">
+                                Hace tu Pedido y recibilo en tu casa ya!
+                            </h2>
+                            
+                            <SearchBars/>
                         </Container>
                     </div>
                     <h6 className="category category-absolute">
