@@ -10,9 +10,8 @@ import {
     Container
 } from "reactstrap";
 
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-
-import SearchBars from "../components/search/SearchBars";
+import IndexNavbar from '../components/Navbars/IndexNavbar';
+import SearchBars from '../components/search/SearchBars';
 
 export default class HomePage extends Component {
     render() {
