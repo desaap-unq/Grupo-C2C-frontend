@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import axios from 'axios';
+// import axios from 'axios';
 
     // const INSTRUCTOR = 'in28minutes'
     // const COURSE_API_URL = 'http://localhost:8080'
@@ -26,7 +26,7 @@ import SearchNavbar from "../components/Navbars/SearchNavbar.js";
 import SearchPageHeader from "../components/Headers/SearchPageHeader.js";
 import DemoFooter from "../components/Footers/DemoFooter.js";
 
-class CourseDataService extends Component {
+class SearchPage extends Component {
 
     // componentDidMount() {
     //     // const { match: { params } } = this.props;
@@ -378,4 +378,4 @@ class CourseDataService extends Component {
   }
 }
     
-export default CourseDataService;
+export default SearchPage;

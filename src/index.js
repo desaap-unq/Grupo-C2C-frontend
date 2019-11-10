@@ -17,7 +17,7 @@ import LandingPage from './views/examples/LandingPage';
 import ProfilePage from './views/examples/ProfilePage';
 import RegisterPage from './views/examples/RegisterPage';
 import HomePage from './pages/HomePage';
-import CourseDataService from './pages/SearchPage';
+import SearchPage from './pages/SearchPage';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -42,7 +42,7 @@ ReactDOM.render(
       />
       <Route
         path="/prueba"
-        render={props => <CourseDataService {...props} />}
+        render={props => <SearchPage {...props} />}
       />
       <Redirect to="/index" />
     </Switch>

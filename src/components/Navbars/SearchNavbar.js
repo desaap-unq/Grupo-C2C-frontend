@@ -61,12 +61,18 @@ function SearchNavbar() {
     <Navbar color="primary" expand="lg">
         <Container>
           <div className="navbar-translate">
-            <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
-              Primary color
-            </NavbarBrand>
+            <NavbarBrand
+            data-placement="bottom"
+            to="/index"
+            target="_blank"
+            title="ViandasYa"
+            tag={Link}
+          >
+            ViandasYa
+          </NavbarBrand>
             <button
               className="navbar-toggler"
-              id="example-navbar-primary"
+              id="navbar-primary"
               type="button"
               onClick={() => {
                 document.documentElement.classList.toggle("nav-open");
@@ -78,24 +84,24 @@ function SearchNavbar() {
               <span className="navbar-toggler-bar bar3" />
             </button>
           </div>
-          <UncontrolledCollapse navbar toggler="#example-navbar-primary">
+          <UncontrolledCollapse navbar toggler="#navbar-primary">
             <Nav className="ml-auto" navbar>
-              <NavItem className="active">
+              {/*<NavItem className="active">
                 <NavLink href="#pablo" onClick={e => e.preventDefault()}>
                   <i className="nc-icon nc-sun-fog-29" />
                   <p>Discover</p>
                 </NavLink>
-              </NavItem>
+              </NavItem>*/}
               <NavItem>
-                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <NavLink to="/index" tag={Link}>
                   <i className="nc-icon nc-single-02" />
-                  <p>Profile</p>
+                  <p>Perfil</p>
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <NavLink to="/index" tag={Link}>
                   <i className="nc-icon nc-settings" />
-                  <p>Settings</p>
+                  <p>Configuraciones</p>
                 </NavLink>
               </NavItem>
             </Nav>
