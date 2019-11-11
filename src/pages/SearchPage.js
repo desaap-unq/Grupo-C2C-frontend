@@ -19,8 +19,10 @@ import {
   InputGroup,
   Container,
   Row,
+  Table,
   Col
 } from "reactstrap";
+// import Table from 'react-bootstrap/Table';
 
 import SearchNavbar from "../components/Navbars/SearchNavbar.js";
 import SearchPageHeader from "../components/Headers/SearchPageHeader.js";
@@ -87,6 +89,37 @@ class SearchPage extends Component {
                 </Button>
               </Col>
             </Row>
+            <br />
+            <br />
+            <Table striped hover>
+              <thead>
+                <tr>
+                  <th>img</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td colSpan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </Table>
             <br />
             <br />
             <Row>
