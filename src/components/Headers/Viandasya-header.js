@@ -1,5 +1,7 @@
 import React from "react";
 
+import {Container} from "reactstrap";
+
 // reactstrap components
 
 // core components
@@ -33,6 +35,9 @@ function ProfilePageHeader() {
         ref={pageHeader}
       >
         <div className="filter" />
+        <Container>
+        
+        </Container>
       </div>
     </>
   );
