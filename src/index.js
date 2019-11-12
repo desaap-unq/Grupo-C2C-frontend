@@ -5,11 +5,9 @@ import './index.css';
 
 import * as serviceWorker from './serviceWorker';
 
-
 import './assets/css/bootstrap.min.css';
 import './assets/css/paper-kit.css';
 import './assets/demo/demo.css';
-
 
 import Index from './views/Index';
 import NucleoIcons from './views/NucleoIcons';
@@ -18,6 +16,9 @@ import ProfilePage from './views/examples/ProfilePage';
 import RegisterPage from './views/examples/RegisterPage';
 import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
+
+// BROWSER=chrome npm start | choose browser
+// mvn spring-boot:run
 
 ReactDOM.render(
   <BrowserRouter>
@@ -41,7 +42,7 @@ ReactDOM.render(
         render={props => <RegisterPage {...props} />}
       />
       <Route
-        path="/prueba"
+        path="/search/:food"
         render={props => <SearchPage {...props} />}
       />
       <Redirect to="/index" />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import axios from 'axios';
+import axios from 'axios';
 
     // const INSTRUCTOR = 'in28minutes'
     // const COURSE_API_URL = 'http://localhost:8080'
@@ -30,26 +30,17 @@ import DemoFooter from "../components/Footers/DemoFooter.js";
 
 class SearchPage extends Component {
 
-    // componentDidMount() {
-    //     // const { match: { params } } = this.props;
-
-    //     axios.get(`http://localhost:8080/business/1`)
-    //     .then(( data ) => {
-    //         console.log(data);
-
-    //         // this.setState({ user });
-    //     });
-    // }
-
-    // render() {
-    //     return( <h1>
-    //     hola mundo!
-    //     </h1>
-    //     );
-    // }
-
   componentDidMount() {
-    this.initEffect();
+      this.initEffect();
+      
+      const { match: { params } } = this.props;
+      
+      axios.get(`http://localhost:8080/business/search/${params.food}`)
+      .then(( data ) => {
+          console.log(data);
+
+          // this.setState({ user });
+      });
   }
 
   initEffect() {
@@ -95,9 +86,9 @@ class SearchPage extends Component {
               <thead>
                 <tr>
                   <th>img</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
+                  <th>Name Business</th>
+                  <th>Description</th>
+                  <th>See Products</th>
                 </tr>
               </thead>
               <tbody>

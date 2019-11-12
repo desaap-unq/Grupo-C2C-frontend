@@ -34,7 +34,7 @@ function SearchNavbar() {
           <Container>
             <h3>
                 156
-                <small className="text-muted"> para una direccion</small>
+                <small className="text-muted"> locales para una direccion</small>
             </h3>
       
           </Container>
