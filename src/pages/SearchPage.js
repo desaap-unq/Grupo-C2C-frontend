@@ -19,7 +19,7 @@ import {
   InputGroup,
   Container,
   Row,
-  Table,
+  // Table,
   Col
 } from "reactstrap";
 // import Table from 'react-bootstrap/Table';
@@ -27,8 +27,14 @@ import {
 import SearchNavbar from "../components/Navbars/SearchNavbar.js";
 import SearchPageHeader from "../components/Headers/SearchPageHeader.js";
 import DemoFooter from "../components/Footers/DemoFooter.js";
+import BusinessList from '../components/BusinessList';
 
 class SearchPage extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { businesses:[] };
+  }
 
   componentDidMount() {
       this.initEffect();
@@ -36,10 +42,10 @@ class SearchPage extends Component {
       const { match: { params } } = this.props;
       
       axios.get(`http://localhost:8080/business/search/${params.food}`)
-      .then(( data ) => {
-          console.log(data);
+           .then(({ data: business }) => {
+              console.log('business', business);
 
-          // this.setState({ user });
+            this.setState({ businesses: business });
       });
   }
 
@@ -82,35 +88,7 @@ class SearchPage extends Component {
             </Row>
             <br />
             <br />
-            <Table striped hover>
-              <thead>
-                <tr>
-                  <th>img</th>
-                  <th>Name Business</th>
-                  <th>Description</th>
-                  <th>See Products</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td colSpan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </Table>
+            <BusinessList businesses={this.state.businesses}/>
             <br />
             <br />
             <Row>
