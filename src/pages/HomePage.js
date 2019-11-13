@@ -5,7 +5,7 @@ import {
     InputGroupText,
     InputGroup,
     Input,
-    FormGroup,
+    // FormGroup,
     Container
 } from "reactstrap";
 
@@ -58,7 +58,7 @@ export default class HomePage extends Component {
                     <h6 className="category category-absolute">
                         Designed and coded by{" "}
                         <a
-                            href="https://www.creative-tim.com?ref=pkr-index-page"
+                            href="#pablo"
                             target="_blank"
                         >
                             <img
