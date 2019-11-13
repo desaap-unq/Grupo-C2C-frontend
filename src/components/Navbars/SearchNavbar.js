@@ -15,9 +15,9 @@ import {
   Container
 } from "reactstrap";
 
-function SearchNavbar() {
+function SearchNavbar(props) {
   const [bodyClick, setBodyClick] = React.useState(false);
-
+  const businesses = props.businesses.length;
   return (
     <>
     {bodyClick ? (
@@ -33,7 +33,7 @@ function SearchNavbar() {
       <Navbar className="navbar bg-info">
           <Container>
             <h3>
-                156
+                {businesses}
                 <small className="text-muted"> locales para una direccion</small>
             </h3>
       

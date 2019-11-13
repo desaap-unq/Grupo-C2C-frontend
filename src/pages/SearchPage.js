@@ -58,7 +58,7 @@ class SearchPage extends Component {
   render() {
   return (
       <>
-        <SearchNavbar />
+        <SearchNavbar businesses={this.state.businesses}/>
         <SearchPageHeader />
         <div className="main">
         <div className="section text-center">
