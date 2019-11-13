@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
-
-    // const INSTRUCTOR = 'in28minutes'
-    // const COURSE_API_URL = 'http://localhost:8080'
-    // const INSTRUCTOR_API_URL = `${COURSE_API_URL}/business`
-
 import {
   Button,
   Card,
@@ -19,18 +14,18 @@ import {
   InputGroup,
   Container,
   Row,
-  // Table,
   Col
 } from "reactstrap";
-// import Table from 'react-bootstrap/Table';
 
 import SearchNavbar from "../components/Navbars/SearchNavbar.js";
 import SearchPageHeader from "../components/Headers/SearchPageHeader.js";
 import DemoFooter from "../components/Footers/DemoFooter.js";
 import BusinessList from '../components/BusinessList';
 
-class SearchPage extends Component {
+const API_URL = 'http://localhost:8080';
+const INSTRUCTOR_API_URL = `${API_URL}/business`;
 
+class SearchPage extends Component {
   constructor(props) {
     super(props);
     this.state = { businesses:[] };
@@ -38,15 +33,18 @@ class SearchPage extends Component {
 
   componentDidMount() {
       this.initEffect();
-      
-      const { match: { params } } = this.props;
-      
-      axios.get(`http://localhost:8080/business/search/${params.food}`)
-           .then(({ data: business }) => {
-              console.log('business', business);
+      this.getBusinesses();
+  }
 
-            this.setState({ businesses: business });
-      });
+  getBusinesses() {
+    const { match: { params } } = this.props;
+      
+    axios.get(`${INSTRUCTOR_API_URL}/search/${params.food}`)
+         .then(({ data: business }) => {
+            console.log('business', business);
+
+          this.setState({ businesses: business });
+    });
   }
 
   initEffect() {
@@ -60,7 +58,7 @@ class SearchPage extends Component {
   render() {
   return (
       <>
-        <SearchNavbar />
+        <SearchNavbar businesses={this.state.businesses}/>
         <SearchPageHeader />
         <div className="main">
         <div className="section text-center">
