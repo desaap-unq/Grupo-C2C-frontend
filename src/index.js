@@ -16,6 +16,7 @@ import ProfilePage from './views/examples/ProfilePage';
 import RegisterPage from './views/examples/RegisterPage';
 import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
+import BuyMenuPage from './pages/BuyMenuPage';
 import BusinessPage from './pages/BusinessPage';
 
 // BROWSER=chrome npm start | choose browser
@@ -25,6 +26,8 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/index" render={props => <HomePage {...props} />} />,
+      <Route path="/search/:food" render={props => <SearchPage {...props} />} />,
+      <Route path="/business/:id/menu" render={props => <BuyMenuPage {...props} />} />,
       <Route path="/indexExample" render={props => <Index {...props} />} />,
       <Route
         path="/nucleo-icons"

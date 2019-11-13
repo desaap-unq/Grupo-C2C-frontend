@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 
-import {
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
-    Input,
-    // FormGroup,
-    Container
-} from "reactstrap";
+import { Container } from "reactstrap";
 
-import IndexNavbar from "../components/Navbars/IndexNavbar";
+import IndexNavbar from '../components/Navbars/IndexNavbar';
+import SearchBars from '../components/search/SearchBars';
 
 export default class HomePage extends Component {
     render() {
@@ -24,37 +18,18 @@ export default class HomePage extends Component {
                     }}
                 >
                     <div className="filter" />
-                    <div className="content-center">
+                    <div className="content-center mt-0">
                         <Container>
                             <div className="title-brand">
                                 <h1 className="presentation-title">Viandas YA</h1>
-                                <div className="fog-low right">
-                                    {/* <FormGroup>
-                                        <Input placeholder="Que comemos!" type="text" />
-                                    </FormGroup> */}
-                                </div>
                             </div>
-                            <h2 className="presentation-subtitle text-center">
-                                Make your mark with a Free Bootstrap 4 (Reactstrap) UI Kit!
-            </h2>
-                        <InputGroup>
-                            <InputGroupAddon addonType="append">
-                                <Input placeholder="Que comemos!" type="text" ></Input>
-                                <InputGroupText>
-                                    <span className="glyphicon glyphicon-search">
-                                        <i aria-hidden={true} className="fa fa-search" />
-                                    </span>
-                                </InputGroupText>
-                            </InputGroupAddon>
-                        </InputGroup>
+                            <h2 className="presentation-subtitle text-center mt-0">
+                                Hace tu Pedido y recibilo en tu casa ya!
+                            </h2>
+                            
+                            <SearchBars/>
                         </Container>
                     </div>
-                    <div
-                        className="moving-clouds"
-                        style={{
-                            backgroundImage: "url(" + require("../assets/img/clouds.png") + ")"
-                        }}
-                    />
                     <h6 className="category category-absolute">
                         Designed and coded by{" "}
                         <a
@@ -67,8 +42,11 @@ export default class HomePage extends Component {
                                 src={require("../assets/img/creative-tim-white-slim2.png")}
                             />
                         </a>
+
                     </h6>
+
                 </div>
+
             </>
         );
     }
