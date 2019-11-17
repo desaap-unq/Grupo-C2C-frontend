@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 
-import {
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
-    Input,
-    Row,
-    FormGroup,
-    Container
-} from "reactstrap";
+import { Container } from "reactstrap";
 
 import IndexNavbar from '../components/Navbars/IndexNavbar';
 import SearchBars from '../components/search/SearchBars';
@@ -41,7 +33,7 @@ export default class HomePage extends Component {
                     <h6 className="category category-absolute">
                         Designed and coded by{" "}
                         <a
-                            href="https://www.creative-tim.com?ref=pkr-index-page"
+                            href="#pablo"
                             target="_blank"
                         >
                             <img
