@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
 
-import classnames from "classnames";
-
 import {
-  Button,
-  Collapse,
-  NavbarBrand,
   InputGroup,
   Col,
   InputGroupAddon,
   Input,
   InputGroupText,
-  Navbar,
-  NavItem,
-  NavLink,
-  Nav,
   Container
 } from "reactstrap";
 
 import {withRouter} from "react-router-dom";
-
-
 
 class SearchBars extends Component {
   constructor(props){
