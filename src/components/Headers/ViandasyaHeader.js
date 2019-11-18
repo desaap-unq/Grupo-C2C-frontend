@@ -1,12 +1,12 @@
 import React from "react";
 
-import {Container} from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
+import {BusinessHeader} from "./BusinessHeader";
+import classnames from "classnames";
 
-// reactstrap components
 
-// core components
 
-function ProfilePageHeader() {
+function ViandasyaHeader(props) {
   let pageHeader = React.createRef();
 
   React.useEffect(() => {
@@ -22,6 +22,7 @@ function ProfilePageHeader() {
       };
     }
   });
+  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
 
   return (
     <>
@@ -29,20 +30,20 @@ function ProfilePageHeader() {
         style={{
           backgroundImage:
             "url(" + require("../../assets/img/big-food-infographics-free-royalty3533.jpg") + ")"
-            // "url(" + require("../../assets/img/cortar-rodajas-deliciosa-pizza-fresca-pepperoni_79782-17.jpg") + ")"
-            // "url(" + require("../../assets/img/pizza-salchichones-sabrosa-fondo-concreto-negro_79782-102.jpg") + ")"
+          // "url(" + require("../../assets/img/cortar-rodajas-deliciosa-pizza-fresca-pepperoni_79782-17.jpg") + ")"
+          // "url(" + require("../../assets/img/pizza-salchichones-sabrosa-fondo-concreto-negro_79782-102.jpg") + ")"
         }}
         className="page-header page-header-xs"
         data-parallax={true}
         ref={pageHeader}
       >
         <div className="filter" />
-        <Container>
-        
-        </Container>
       </div>
+        <Container className="header-buyMenu fixed-top navbar-transparent">
+          <BusinessHeader business={props.business}></BusinessHeader>
+        </Container>
     </>
   );
 }
 
-export default ProfilePageHeader;
+export default ViandasyaHeader;
