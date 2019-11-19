@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 import './assets/css/bootstrap.min.css';
 import './assets/css/paper-kit.css';
+import './assets/css/viandas-ya.css';
 import './assets/demo/demo.css';
 
 import Index from './views/Index';

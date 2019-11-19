@@ -1,8 +1,7 @@
 import React from "react";
 
 // reactstrap components
-
-// core components
+import {Container} from "reactstrap";
 
 function SearchPageHeader() {
   let pageHeader = React.createRef();
@@ -26,13 +25,15 @@ function SearchPageHeader() {
       <div
         style={{
           backgroundImage:
-            "url(" + require("../../assets/img/ingredientes-hamburguesas-planas-espacio-copia_23-2148235012.jpg") + ")"
+            "url(" + require("../../assets/img/big-food-infographics-free-royalty3533.jpg") + ")"
         }}
         className="page-header page-header-xs"
         data-parallax={true}
         ref={pageHeader}
       >
         <div className="filter" />
+        <Container>
+        </Container>
       </div>
     </>
   );

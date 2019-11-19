@@ -1,10 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-// nodejs library that concatenates strings
 import classnames from "classnames";
 
-// reactstrap components
 import {
+  Button,
   Collapse,
   NavbarBrand,
   Navbar,
@@ -14,7 +12,7 @@ import {
   Container
 } from "reactstrap";
 
-function ExamplesNavbar() {
+function ViandasNavBar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -45,21 +43,16 @@ function ExamplesNavbar() {
     };
   });
   return (
-    <Navbar
-       className={classnames("fixed-top", navbarColor)}
-      color-on-scroll="300"
-      expand="lg"
-    >
+    <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
       <Container>
         <div className="navbar-translate">
           <NavbarBrand
             data-placement="bottom"
-            to="/index"
+            href="/index"
             target="_blank"
             title="Coded by Creative Tim"
-            tag={Link}
           >
-            Viandas Ya 
+            Viandas YA
           </NavbarBrand>
           <button
             aria-expanded={navbarCollapse}
@@ -79,19 +72,6 @@ function ExamplesNavbar() {
           isOpen={navbarCollapse}
         >
           <Nav navbar>
-            <NavItem>
-              <NavLink to="/index" tag={Link}>
-                <i className="nc-icon nc-layout-11" /> Ingresa
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-examples-navbar"
-                target="_blank"
-              >
-                <i className="nc-icon nc-book-bookmark" /> Registrate
-              </NavLink>
-            </NavItem>
             <NavItem>
               <NavLink
                 data-placement="bottom"
@@ -127,14 +107,22 @@ function ExamplesNavbar() {
             </NavItem>
             <NavItem>
               <NavLink
-                data-placement="bottom"
-                href="https://www.github.com/CreativeTimOfficial?ref=creativetim"
+                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-index-navbar"
                 target="_blank"
-                title="Star on GitHub"
               >
-                <i className="fa fa-github" />
-                <p className="d-lg-none">GitHub</p>
+                <i className="nc-icon nc-book-bookmark" /> Ingresar
               </NavLink>
+            </NavItem>
+            <NavItem>
+              <Button
+                className="btn-round"
+                color="danger"
+                href="#pablo"
+                target="_blank"
+                disabled
+              >
+                Registrate
+              </Button>
             </NavItem>
           </Nav>
         </Collapse>
@@ -143,4 +131,4 @@ function ExamplesNavbar() {
   );
 }
 
-export default ExamplesNavbar;
+export default ViandasNavBar;

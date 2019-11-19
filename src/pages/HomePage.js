@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 import { Container } from "reactstrap";
 
-import IndexNavbar from '../components/Navbars/IndexNavbar';
+import ViandasNavBar from '../components/Navbars/ViandasNavBar';
 import SearchBars from '../components/search/SearchBars';
 
 export default class HomePage extends Component {
     render() {
         return (
             <>
-                <IndexNavbar />
+                <ViandasNavBar />
                 <div
                     className="page-header section-dark"
                     style={{
@@ -42,6 +42,7 @@ export default class HomePage extends Component {
                                 src={require("../assets/img/creative-tim-white-slim2.png")}
                             />
                         </a>
+                            
 
                     </h6>
 
