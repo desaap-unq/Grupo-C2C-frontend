@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ViandasyaNavbar from "../components/Navbars/Viandasya-navbar.js";
+import ViandasNavBar from "../components/Navbars/ViandasNavBar.js";
 import ViandasyaHeader from "../components/Headers/ViandasyaHeader.js";
 import ViandasyaMenus from "../components/body/ViandasyaMenus.js";
 import axios from 'axios';
@@ -46,7 +46,7 @@ export default class BuyMenuPage extends Component {
     render() {
         return (
             <div>
-                <ViandasyaNavbar />
+                <ViandasNavBar />
                 <ViandasyaHeader business={this.state.business} />
                 <ViandasyaMenus menus={this.state.menus} />
 
