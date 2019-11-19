@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container,Spinner, Row, Col } from "reactstrap";
 
 
 export class BusinessHeader extends Component {
@@ -9,9 +9,12 @@ export class BusinessHeader extends Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <div>
-                <Row>
+                {this.props.business === undefined ? (<Spinner animation="border" role="status">
+  <span className="sr-only">Loading...</span>
+</Spinner>):(<Row>
                     <Col md="2" className="pr-0 pl-5">
                         <img
                             alt="..."
@@ -30,7 +33,8 @@ export class BusinessHeader extends Component {
                         <h4>Abierto: {this.props.business.days}</h4>
                         <h4>{this.props.business.description}</h4>
                     </Col>
-                </Row>
+                </Row>)}
+                
             </div>
         );
     }
