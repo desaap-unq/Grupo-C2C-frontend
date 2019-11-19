@@ -1,8 +1,7 @@
 import React from "react";
 
-import { Container, Row, Col } from "reactstrap";
+import { Container} from "reactstrap";
 import {BusinessHeader} from "./BusinessHeader";
-import classnames from "classnames";
 
 
 
@@ -22,7 +21,6 @@ function ViandasyaHeader(props) {
       };
     }
   });
-  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
 
   return (
     <>

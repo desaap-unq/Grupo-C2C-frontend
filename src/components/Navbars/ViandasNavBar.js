@@ -1,7 +1,6 @@
 import React from "react";
-// nodejs library that concatenates strings
 import classnames from "classnames";
-// reactstrap components
+
 import {
   Button,
   Collapse,
@@ -120,7 +119,7 @@ function ViandasNavBar() {
                 color="danger"
                 href="#pablo"
                 target="_blank"
-                enabled
+                disabled
               >
                 Registrate
               </Button>

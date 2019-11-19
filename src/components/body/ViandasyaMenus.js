@@ -1,10 +1,6 @@
 import React, { Component } from "react"
 
-import {
-    Container, Row, Card, Button, CardBody,
-    CardFooter,
-    CardTitle, CardHeader
-} from "reactstrap";
+import {Row, Card, Button, CardBody,CardFooter,CardTitle} from "reactstrap";
 
 
 export default class ViandasyaMenu extends Component {
