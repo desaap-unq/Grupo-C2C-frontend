@@ -25,3 +25,7 @@
 {
     font-weight: bold;
 }
+
+.nav-front{
+    z-index: 1040;
+}

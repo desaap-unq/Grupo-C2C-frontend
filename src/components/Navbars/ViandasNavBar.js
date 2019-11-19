@@ -43,7 +43,7 @@ function ViandasNavBar() {
     };
   });
   return (
-    <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
+    <Navbar className={classnames("fixed-top nav-front", navbarColor)} expand="lg">
       <Container>
         <div className="navbar-translate">
           <NavbarBrand
