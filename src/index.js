@@ -18,7 +18,6 @@ import RegisterPage from './views/examples/RegisterPage';
 import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
 import BuyMenuPage from './pages/BuyMenuPage';
-import BusinessPage from './pages/BusinessPage';
 
 // BROWSER=chrome npm start | choose browser
 // mvn spring-boot:run
@@ -45,14 +44,6 @@ ReactDOM.render(
       <Route
         path="/register-page"
         render={props => <RegisterPage {...props} />}
-      />
-      <Route
-        path="/search/:food"
-        render={props => <SearchPage {...props} />}
-      />
-      <Route
-        path="/business/:id/menus"
-        render={props => <BusinessPage {...props} />}
       />
       <Redirect to="/index" />
     </Switch>

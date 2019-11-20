@@ -36,7 +36,7 @@ function ViandasyaHeader(props) {
         ref={pageHeader}
       >
         <div className="filter" />
-        <Container className="header-buyMenu navbar-transparent">
+        <Container className="header-buyMenu navbar-transparent nav-front">
           <BusinessHeader business={props.business}></BusinessHeader>
         </Container>
       </div>
