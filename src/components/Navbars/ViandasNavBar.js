@@ -107,7 +107,7 @@ function ViandasNavBar() {
             </NavItem>
             <NavItem>
               <NavLink
-                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-index-navbar"
+                href="/login"
                 target="_blank"
               >
                 <i className="nc-icon nc-book-bookmark" /> Ingresar

@@ -38,3 +38,12 @@
     color: white;
     font:bold;
 }
+.login-page.card-register.ml-auto.mr-auto{
+    background-color: #403d3994
+}
+
+.login-page.card-register.ml-auto.mr-auto h3{
+    font-weight: 500;
+    color: #f5593d;
+}
+
