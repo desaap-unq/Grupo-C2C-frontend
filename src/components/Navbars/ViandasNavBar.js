@@ -43,7 +43,7 @@ function ViandasNavBar() {
     };
   });
   return (
-    <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
+    <Navbar className={classnames("fixed-top nav-front", navbarColor)} expand="lg">
       <Container>
         <div className="navbar-translate">
           <NavbarBrand
@@ -107,7 +107,7 @@ function ViandasNavBar() {
             </NavItem>
             <NavItem>
               <NavLink
-                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-index-navbar"
+                href="/login"
                 target="_blank"
               >
                 <i className="nc-icon nc-book-bookmark" /> Ingresar

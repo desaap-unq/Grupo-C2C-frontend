@@ -1,11 +1,11 @@
 import React from "react";
 
 // reactstrap components
-import {Container} from "reactstrap";
+import { Container } from "reactstrap";
 
-function SearchPageHeader() {
+function SearchPageHeader(props) {
   let pageHeader = React.createRef();
-
+  const businesses = props.businesses.length;
   React.useEffect(() => {
     if (window.innerWidth < 991) {
       const updateScroll = () => {
@@ -32,7 +32,12 @@ function SearchPageHeader() {
         ref={pageHeader}
       >
         <div className="filter" />
-        <Container>
+
+        <Container className="header-searchPage search-result">
+          <h2>
+            {businesses} locales para una direccion
+          </h2>
+
         </Container>
       </div>
     </>
