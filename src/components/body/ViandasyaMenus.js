@@ -40,6 +40,32 @@ export default class ViandasyaMenu extends Component {
                             </CardFooter>
                         </Card >
                     })}
+                    {this.props.menus.map(menu => {
+                        return <Card className="col-md-6">
+                            <CardTitle>{menu.name}</CardTitle>
+                            <CardBody className="pb-0">
+                                <p>{menu.description}</p>
+                                <p className="bold">$ {menu.price}</p>
+                                <p>tiempo entrega: {menu.averageDeliveryTime}</p>
+                            </CardBody>
+                            <CardFooter>
+                                <Button>Comprar</Button>
+                            </CardFooter>
+                        </Card >
+                    })}
+                    {this.props.menus.map(menu => {
+                        return <Card className="col-md-6">
+                            <CardTitle>{menu.name}</CardTitle>
+                            <CardBody className="pb-0">
+                                <p>{menu.description}</p>
+                                <p className="bold">$ {menu.price}</p>
+                                <p>tiempo entrega: {menu.averageDeliveryTime}</p>
+                            </CardBody>
+                            <CardFooter>
+                                <Button>Comprar</Button>
+                            </CardFooter>
+                        </Card >
+                    })}
 
                 </Row>
             </div>

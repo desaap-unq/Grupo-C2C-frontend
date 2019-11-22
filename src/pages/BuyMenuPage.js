@@ -3,7 +3,7 @@ import ViandasNavBar from "../components/Navbars/ViandasNavBar.js";
 import ViandasyaHeader from "../components/Headers/ViandasyaHeader.js";
 import ViandasyaMenus from "../components/body/ViandasyaMenus.js";
 import axios from 'axios';
-
+import ViandasCart from "../components/ViandasCart.js";
 const API_URL = 'http://localhost:8080';
 
 
@@ -57,7 +57,7 @@ export default class BuyMenuPage extends Component {
 
                     </div>
                     <div className="col-md-2">
-                        
+                        <ViandasCart/>
                     </div>
                     <div className="col-md-2">
                         
