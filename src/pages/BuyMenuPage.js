@@ -48,7 +48,22 @@ export default class BuyMenuPage extends Component {
             <div>
                 <ViandasNavBar />
                 <ViandasyaHeader business={this.state.business} />
-                <ViandasyaMenus menus={this.state.menus} />
+                <div className="row">
+                    <div className="col-md-2">
+                        
+                    </div>
+                    <div className="col-md-6">
+                        <ViandasyaMenus menus={this.state.menus} />
+
+                    </div>
+                    <div className="col-md-2">
+                        
+                    </div>
+                    <div className="col-md-2">
+                        
+                    </div>
+
+                </div>
 
             </div>
         );
