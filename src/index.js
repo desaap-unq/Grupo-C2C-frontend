@@ -19,6 +19,7 @@ import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
 import BuyMenuPage from './pages/BuyMenuPage';
 import LoginPage from './pages/LoginPage';
+import LoadBusinessPage from './pages/LoadBusinessPage';
 
 // BROWSER=chrome npm start | choose browser
 // mvn spring-boot:run
@@ -31,6 +32,7 @@ ReactDOM.render(
       <Route path="/business/:id/menu" render={props => <BuyMenuPage {...props} />} />,
       <Route path="/indexExample" render={props => <Index {...props} />} />,
       <Route path="/login" render={props => <LoginPage {...props} />} />,
+      <Route path="/business/load" render={props => <LoadBusinessPage {...props} />} />,
       <Route
         path="/nucleo-icons"
         render={props => <NucleoIcons {...props} />}
