@@ -1,0 +1,54 @@
+.header-buyMenu.navbar-transparent.nav-front {
+    padding-top: 65px;
+}
+.header-buyMenu.navbar-transparent.nav-front div.pl-1.col-md-3 h3 {
+    font-weight: 600;
+    color: white;
+    margin-top: 6px;
+}
+
+.header-buyMenu.navbar-transparent.nav-front div.pl-1.col-md-3 h4 {
+    font-weight: 500;
+    color: white;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.header-buyMenu.navbar-transparent.nav-front div.pl-1.col-md-7 h4 {
+    font-weight: 500;
+    color: white;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.card-title, p.bold
+{
+    font-weight: bold;
+}
+
+.nav-front{
+    z-index: 1040;
+}
+
+.header-searchPage.search-result{
+    z-index: 1040;
+}
+
+.header-searchPage.search-result h2{
+    color: white;
+    font:bold;
+}
+.login-page.card-register.ml-auto.mr-auto{
+    background-color: #403d3994
+}
+
+.login-page.card-register.ml-auto.mr-auto h3{
+    font-weight: 500;
+    color: #f5593d;
+}
+
+.background-form {
+    background-color: #403d3994;
+    padding-left: 27px;
+    padding-right: 27px;
+}

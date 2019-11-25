@@ -31,7 +31,7 @@ class SearchBars extends Component {
     return (
       <Container>
         <InputGroup>
-          <Col className="md=12 mt-4">
+          <Col className="offset-1 col-md-10 mt-4">
             <InputGroupAddon addonType="append">
               <Input placeholder="Que comemos!" type="text" value={this.state.food} onChange={this.updateInput} ></Input>
               <InputGroupText>

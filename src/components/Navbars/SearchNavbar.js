@@ -1,95 +1,160 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// nodejs library that concatenates strings
-// import classnames from "classnames";
+import classnames from "classnames";
 
-// reactstrap components
 import {
-  // Collapse,
   NavbarBrand,
-  UncontrolledCollapse,
   Navbar,
   NavItem,
   NavLink,
   Nav,
-  Container
+  Container,
+  Collapse
 } from "reactstrap";
 
 function SearchNavbar(props) {
-  const [bodyClick, setBodyClick] = React.useState(false);
+  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
+  const [navbarCollapse, setNavbarCollapse] = React.useState(false);
   const businesses = props.businesses.length;
+
+  const toggleNavbarCollapse = () => {
+    setNavbarCollapse(!navbarCollapse);
+    document.documentElement.classList.toggle("nav-open");
+  };
+
+  React.useEffect(() => {
+    const updateNavbarColor = () => {
+      if (
+        document.documentElement.scrollTop > 299 ||
+        document.body.scrollTop > 299
+      ) {
+        setNavbarColor("");
+      } else if (
+        document.documentElement.scrollTop < 300 ||
+        document.body.scrollTop < 300
+      ) {
+        setNavbarColor("navbar-transparent");
+      }
+    };
+
+    window.addEventListener("scroll", updateNavbarColor);
+
+    return function cleanup() {
+      window.removeEventListener("scroll", updateNavbarColor);
+    };
+  });
   return (
-    <>
-    {bodyClick ? (
-        <div
-          id="bodyClick"
-          onClick={() => {
-            document.documentElement.classList.toggle("nav-open");
-            setBodyClick(false);
-          }}
-        />
-      ) : null}
-    <Navbar color="info" expand="lg">
-      <Navbar className="navbar bg-info">
-          <Container>
+    <Navbar
+      className={classnames("fixed-top", navbarColor)}
+      color-on-scroll="300"
+      expand="lg"
+    >
+    <Navbar className="navbar-transparent">
+          <Container className="text-primary">
             <h3>
                 {businesses}
-                <small className="text-muted"> locales para una direccion</small>
+                <small className="text-primary"> locales para una direccion</small>
             </h3>
       
           </Container>
         </Navbar>
-       
-        <Container>
-          <div className="navbar-translate">
-            <NavbarBrand
+      <Container>
+        <div className="navbar-translate">
+          <NavbarBrand
             data-placement="bottom"
             to="/index"
             target="_blank"
             title="ViandasYa"
             tag={Link}
           >
-            ViandasYa
+            ViandasYa 
           </NavbarBrand>
-            <button
-              className="navbar-toggler"
-              id="navbar-primary"
-              type="button"
-              onClick={() => {
-                document.documentElement.classList.toggle("nav-open");
-                setBodyClick(true);
-              }}
-            >
-              <span className="navbar-toggler-bar bar1" />
-              <span className="navbar-toggler-bar bar2" />
-              <span className="navbar-toggler-bar bar3" />
-            </button>
-          </div>
-          <UncontrolledCollapse navbar toggler="#navbar-primary">
-            <Nav className="ml-auto" navbar>
-              {/*<NavItem className="active">
-                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
-                  <i className="nc-icon nc-sun-fog-29" />
-                  <p>Discover</p>
-                </NavLink>
-              </NavItem>*/}
-              <NavItem>
-                <NavLink to="/index" tag={Link}>
+          <button
+            aria-expanded={navbarCollapse}
+            className={classnames("navbar-toggler navbar-toggler", {
+              toggled: navbarCollapse
+            })}
+            onClick={toggleNavbarCollapse}
+          >
+            <span className="navbar-toggler-bar bar1" />
+            <span className="navbar-toggler-bar bar2" />
+            <span className="navbar-toggler-bar bar3" />
+          </button>
+        </div>
+        <Collapse
+          className="justify-content-end"
+          navbar
+          isOpen={navbarCollapse}
+        >
+          <Nav navbar>
+            {/*<NavItem>
+              <NavLink to="/index" tag={Link}>
+                <i className="nc-icon nc-layout-11" /> Ingresa
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-examples-navbar"
+                target="_blank"
+              >
+                <i className="nc-icon nc-book-bookmark" /> Registrate
+              </NavLink>
+            </NavItem>*/}
+            <NavItem>
+                <NavLink to="/index" 
+                         tag={Link}
+                         title="Perfil"
+                >
                   <i className="nc-icon nc-single-02" />
                   <p>Perfil</p>
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/index" tag={Link}>
+                <NavLink to="/index" 
+                         tag={Link}
+                         title="Configuraciones"
+              >
                   <i className="nc-icon nc-settings" />
                   <p>Configuraciones</p>
                 </NavLink>
               </NavItem>
-            </Nav>
-          </UncontrolledCollapse>
-        </Container>
-      </Navbar>
-    </>
+            <NavItem>
+              <NavLink
+                data-placement="bottom"
+                href="https://twitter.com/CreativeTim?ref=creativetim"
+                target="_blank"
+                title="Follow us on Twitter"
+              >
+                <i className="fa fa-twitter" />
+                <p className="d-lg-none">Twitter</p>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                data-placement="bottom"
+                href="https://www.facebook.com/CreativeTim?ref=creativetim"
+                target="_blank"
+                title="Like us on Facebook"
+              >
+                <i className="fa fa-facebook-square" />
+                <p className="d-lg-none">Facebook</p>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                data-placement="bottom"
+                href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+                target="_blank"
+                title="Follow us on Instagram"
+              >
+                <i className="fa fa-instagram" />
+                <p className="d-lg-none">Instagram</p>
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Container>
+    </Navbar>
   );
 }
 

@@ -1,12 +1,11 @@
 import React from "react";
 
 // reactstrap components
+import { Container } from "reactstrap";
 
-// core components
-
-function SearchPageHeader() {
+function SearchPageHeader(props) {
   let pageHeader = React.createRef();
-
+  const businesses = props.businesses.length;
   React.useEffect(() => {
     if (window.innerWidth < 991) {
       const updateScroll = () => {
@@ -26,13 +25,20 @@ function SearchPageHeader() {
       <div
         style={{
           backgroundImage:
-            "url(" + require("../../assets/img/ingredientes-hamburguesas-planas-espacio-copia_23-2148235012.jpg") + ")"
+            "url(" + require("../../assets/img/big-food-infographics-free-royalty3533.jpg") + ")"
         }}
         className="page-header page-header-xs"
         data-parallax={true}
         ref={pageHeader}
       >
         <div className="filter" />
+
+        <Container className="header-searchPage search-result">
+          <h2>
+            {businesses} locales para una direccion
+          </h2>
+
+        </Container>
       </div>
     </>
   );

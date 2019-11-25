@@ -10,7 +10,7 @@ class Business extends Component {
 	}
 
 	redirectMenus() {
-		this.props.history.push("/business/" + this.props.business.id + "/menus");
+		this.props.history.push("/business/" + this.props.business.id + "/menu");
 	}
 
 	render() {

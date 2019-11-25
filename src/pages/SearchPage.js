@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Container } from "reactstrap";
 
-import SearchNavbar from "../components/Navbars/SearchNavbar.js";
+import ViandasNavBar from '../components/Navbars/ViandasNavBar';
+
 import SearchPageHeader from "../components/Headers/SearchPageHeader.js";
 import DemoFooter from "../components/Footers/DemoFooter.js";
 import BusinessList from '../components/BusinessList';
@@ -44,8 +45,8 @@ class SearchPage extends Component {
   render() {
   return (
       <>
-        <SearchNavbar businesses={this.state.businesses}/>
-        <SearchPageHeader />
+        <ViandasNavBar/>
+        <SearchPageHeader businesses={this.state.businesses} />
         <div className="main">
           <div className="section text-center">
             <Container>
