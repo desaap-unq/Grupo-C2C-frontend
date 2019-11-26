@@ -47,3 +47,26 @@
     color: #f5593d;
 }
 
+.header-cart h4{
+    /* background-color: #403d3994; */
+    font-weight: 400;
+}
+
+.viandas-cart{
+    border-style: dotted;
+     border-width: 1px;
+    /* border: 1px solid #ECECEC; */
+}
+
+.cancel-cart{
+    padding: 0px;
+}
+
+.border-item{
+    border-style: dotted;
+     border-width: 1px;
+     /* border-color: 660033;
+     background-color: cc3366;
+     font-family: verdana, arial;
+     font-size: 10pt; */
+  }
