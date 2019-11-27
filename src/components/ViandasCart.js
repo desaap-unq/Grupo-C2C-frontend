@@ -3,9 +3,21 @@ import { Card, CardTitle,ListGroup,ListGroupItem, CardBody, CardFooter, Button }
 import {ItemMenu} from "../components/ItemMenu";
 
 export default class ViandasCart extends Component {
+    constructor(props){
+        super(props) 
+        this.state = {menusCart:[{quantity:1, menu:{id:1, name:"hamburguesa"}},{quantity:2, menu:{id:2, name:"hamburguesa"}}]}
 
-    super(props) {
+        this.removeItem.bind(this);
+}
+        // this.menusCart=[{quantity:1, menu:{id:1, name:"hamburguesa"}},{quantity:2, menu:{id:2, name:"hamburguesa"}}];
+    fun(){
+        console.log("holaaaa")
+    }    
 
+    removeItem(id){
+        console.log(id.currentTarget.id);
+        
+        // this.menusCart = this.menusCart.filter( orderItem => orderItem.menu.id !== id );
     }
 
     render() {
@@ -15,10 +27,8 @@ export default class ViandasCart extends Component {
                     <h4 className="pl-3 mt-0" >Tu Vianda </h4>
                     
                 </div>
-                <ItemMenu/>    
-                <ItemMenu/>    
-                <ItemMenu/>    
-                <ItemMenu/>
+                {this.state.menusCart.map(menu =>{return(<ItemMenu key={menu.menu.id} id={menu.menu.id} orderItem={menu} removeItem={this.removeItem}/>)})};
+                
                 <div className="row pt-4">
                     <h4 className="pl-3 mt-0 col-8 text-center" >TOTAL </h4>
                     <h4 className="pl-3 mt-0 col-4" >$680 </h4>
@@ -30,19 +40,6 @@ export default class ViandasCart extends Component {
             </div>
 
 
-
-
-            // <Card className="col-md-12">
-            //     <CardTitle>Compra</CardTitle>
-            //     <CardBody className="pb-0">
-            //         <p>Pizza</p>
-            //         <p className="bold">$260</p>
-            //         <p>tiempo entrega:</p>
-            //     </CardBody>
-            //     <CardFooter>
-            //         <Button>Comprar</Button>
-            //     </CardFooter>
-            // </Card >
         );
     }
 }
