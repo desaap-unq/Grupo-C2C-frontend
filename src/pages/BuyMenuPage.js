@@ -56,10 +56,10 @@ export default class BuyMenuPage extends Component {
                         <ViandasyaMenus menus={this.state.menus} />
 
                     </div>
-                    <div className="col-md-2">
+                    <div className="col-md-3 cart-responvive ">
                         <ViandasCart/>
                     </div>
-                    <div className="col-md-2">
+                    <div className="col-md-1">
                         
                     </div>
 

@@ -12,16 +12,21 @@ export default class ViandasCart extends Component {
         return (
             <div className="viandas-cart col-md-12">
                 <div className="header-cart row  justify-content-center mt-2 mb-2">
-                    <h4 className="pl-3 mt-0 " >Tu Vianda </h4>
+                    <h4 className="pl-3 mt-0" >Tu Vianda </h4>
                     
                 </div>
-                {/* <ListGroup >
-                    <ListGroupItem>Cras justo odio</ListGroupItem>
-                    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                    <ListGroupItem>Morbi leo risus</ListGroupItem>
-                    <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
-                </ListGroup> */}
                 <ItemMenu/>    
+                <ItemMenu/>    
+                <ItemMenu/>    
+                <ItemMenu/>
+                <div className="row pt-4">
+                    <h4 className="pl-3 mt-0 col-8 text-center" >TOTAL </h4>
+                    <h4 className="pl-3 mt-0 col-4" >$680 </h4>
+                    
+                </div> 
+                <div className="row">
+                    <Button className="offset-2 col-8 mb-3 mt-4 btn-danger">Continuar</Button>   
+                </div>
             </div>
 
 
