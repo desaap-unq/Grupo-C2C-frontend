@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-
-import axios from 'axios';
 import { Container } from "reactstrap";
-
 import ViandasNavBar from '../components/Navbars/ViandasNavBar';
-
 import SearchPageHeader from "../components/Headers/SearchPageHeader.js";
 import DemoFooter from "../components/Footers/DemoFooter.js";
 import BusinessList from '../components/BusinessList';
+import API from "../utils/api";
 
-const API_URL = 'http://localhost:8080';
-const INSTRUCTOR_API_URL = `${API_URL}/business`;
+const SERVICE_URL = `business`;
 
 class SearchPage extends Component {
   constructor(props) {
@@ -26,7 +22,7 @@ class SearchPage extends Component {
   getBusinesses() {
     const { match: { params } } = this.props;
       
-    axios.get(`${INSTRUCTOR_API_URL}/search/${params.food}`)
+    API.get(`${SERVICE_URL}/search/${params.food}`)
          .then(({ data: business }) => {
             console.log('business', business);
 
