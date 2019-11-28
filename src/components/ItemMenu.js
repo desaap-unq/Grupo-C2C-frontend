@@ -19,7 +19,7 @@ export class ItemMenu extends Component {
 
                 </div>
                 <div className="col-2">
-                    <Button id={this.props.orderItem.menu.id} className="cancel-cart" onClick={this.props.removeItem}><i className="nc-icon nc-simple-remove"></i></Button>
+                    <Button id={this.props.orderItem.menu.id} className="cancel-cart" onClick={this.props.removeItem} ><i className="nc-icon nc-simple-remove"></i></Button>
 
                 </div>
             </div>
