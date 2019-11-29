@@ -13,11 +13,15 @@ export default class ViandasCart extends Component {
     componentDidMount() {
         this.updateTotalPrice();
     }
-
+    
+    componentWillReceiveProps() {
+        console.log("paso por");
+        this.updateTotalPrice();
+    }
+    
     removeItem(event){
         this.props.removeItems(event.currentTarget.id);
         this.updateTotalPrice();
-         console.log(this.props.cart);
     }
 
     updateTotalPrice(){

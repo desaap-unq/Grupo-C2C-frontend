@@ -17,15 +17,13 @@ export default class BuyMenuPage extends Component {
                               {quantity:2, menu:{id:4, name:"hamburguesa", price:150}}
                             ]};
 
-        // this.state = { business: {} };
-        // this.state = { menus: [] };
         
         this.addToCart = this.addToCart.bind(this); 
         this.createOrderItem = this.createOrderItem.bind(this); 
         this.updateCart = this.updateCart.bind(this); 
         this.removeItem = this.removeItem.bind(this); 
+        this.addQuantity = this.addQuantity.bind(this); 
         
-        // this.business = this.menus[0].business;
     }
     
     componentDidMount() {
@@ -34,27 +32,30 @@ export default class BuyMenuPage extends Component {
                         });
         this.getMenus();
         this.getBusiness();
+        
     }
 
     addToCart(item){
-        // console.log(item.currentTarget.id);
-        // console.log(this.createOrderItem(item.currentTarget.id));
-        this.setState({cart:this.updateCart(item.currentTarget.id) });
-        // console.log(item.currentTarget.id);
-        // console.log(this.createOrderItem(item.currentTarget.id));
+        
+        if (this.state.cart.some( orderItem => orderItem.menu.id  == item.currentTarget.id ) ) 
+            this.addQuantity(item.currentTarget.id);
+        else
+            this.setState({cart:this.updateCart(item.currentTarget.id) });
     }
     
     removeItem(id){
         this.setState({cart:this.state.cart.filter( orderItem => orderItem.menu.id !== parseInt(id) )});    
-
     }
 
     updateCart(id){
         let currentCart = this.state.cart;
         currentCart.push(this.createOrderItem(id));
-        console.log(currentCart);
         return  currentCart;
+    }
 
+    addQuantity(id){
+        let itemOrder = this.state.cart.find(item=>item.menu.id == id);
+        itemOrder.quantity++;;
     }
 
     createOrderItem(id){
@@ -63,7 +64,6 @@ export default class BuyMenuPage extends Component {
 
     getBusiness() {
         const { match: { params } } = this.props;
-        console.log(`${API_URL}/business/${params.id}`);
         axios.get(`${API_URL}/business/${params.id}`)
             .then(({ data: _business }) => {
                 console.log('business', _business);
@@ -76,7 +76,6 @@ export default class BuyMenuPage extends Component {
         const { match: { params } } = this.props;
         axios.get(`${API_URL}/menu/business/${params.id}`)
             .then(({ data: _menus }) => {
-                console.log('menus', _menus);
 
                 this.setState({ menus: _menus });
             });
