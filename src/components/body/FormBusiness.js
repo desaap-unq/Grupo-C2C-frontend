@@ -6,29 +6,45 @@ import {
   CustomInput,
   Form, FormGroup, Label, Input, FormText, FormFeedback } from 'reactstrap';
 import API from "../../utils/api";
+import BusinessDto from "../../utils/api";
 
 const SERVICE_URL = `business`;
 
 class FormBusiness extends Component {
 
   state = { 
-    name: ''
+    name: "",
+    phone: 1234,
+    logo: "",
+    locality: "",
+    address: "",
+    days: "",
+    description: "",
+    link: "website"
   }
 
   handleChange = event => {
-    this.setState({ 
-      name: event.target.value
-    });
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleChangeFile(selectorFiles: FileList){
+      console.log(selectorFiles[0]);
   }
 
   handleSubmit = event => {
     event.preventDefault();
 
-    const business = {
-      name: this.state.name
-    };
+    const business = new BusinessDto();
+    business.name = this.state.name;
+    business.phone = this.state.phone;
+    business.logo = this.state.logo;
+    business.locality = this.state.locality;
+    business.address = this.state.address;
+    business.days = this.state.days;
+    business.description = this.state.description;
+    business.link = this.state.link;
 
-    API.post(`${SERVICE_URL}/add`, { business })
+    API.post(`${SERVICE_URL}/add`, business )
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -54,19 +70,28 @@ class FormBusiness extends Component {
             <Col md={6}>
               <FormGroup>
                 <Label for="locality">Locality</Label>
-                <Input type="text" name="locality" id="locality"/>
+                <Input type="text" 
+                       name="locality" 
+                       id="locality"
+                       onChange={this.handleChange}/>
               </FormGroup>
             </Col>
             <Col md={6}>
               <FormGroup>
                 <Label for="address">Address</Label>
-                <Input type="text" name="address" id="address"/>
+                <Input type="text" 
+                       name="address" 
+                       id="address"
+                       onChange={this.handleChange}/>
               </FormGroup>
             </Col>
           </Row>
           <FormGroup>
             <Label for="description">Description</Label>
-            <Input type="textarea" name="description" id="description" />
+            <Input type="textarea" 
+                   name="description" 
+                   id="description" 
+                   onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup>
             <Label for="link">Web Site</Label>
@@ -75,21 +100,20 @@ class FormBusiness extends Component {
               name="link"
               id="link"
               placeholder="web site"
-            />
+              onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup>
             <Label for="email">Email</Label>
-            <Input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="pepe@know.com"
-            />
+            <Input type="email"
+                   name="email"
+                   id="email"
+                   placeholder="pepe@know.com"
+                   onChange={this.handleChange}/>
           </FormGroup>
           <Row form>
-            <Col md={6}>
+            <Col md={2}>
               <FormGroup>
-                <Label for="zip">Zip</Label>
+                <Label for="zip">Area</Label>
                 <Input type="number" name="zip" id="zip"/>
               </FormGroup>
             </Col>
@@ -101,15 +125,25 @@ class FormBusiness extends Component {
                   name="phone"
                   id="phone"
                   placeholder="12345678"
-                />
+                  onChange={this.handleChange}/>
               </FormGroup>
             </Col>
           </Row>
            <FormGroup>
             <Label for="days">Days</Label>
             <div>
-              <CustomInput type="radio" id="days" name="days" label="LunAVier" />
-              <CustomInput type="radio" id="days" name="days" label="LunADom" />
+              <CustomInput type="radio" 
+                           id="days" 
+                           name="days" 
+                           label="LunAVier"
+                           value="LunAVier"
+                           onChange={this.handleChange}/>
+              <CustomInput type="radio" 
+                           id="days" 
+                           name="days" 
+                           label="LunADom"
+                           value="LunADom"
+                           onClick={this.handleChange}/>
             </div>  
           </FormGroup>
           <h3>
@@ -118,7 +152,11 @@ class FormBusiness extends Component {
           <FormGroup row>
             <Label for="exampleFile" sm={2}>File</Label>
             <Col sm={10}>
-              <Input type="file" name="file" id="exampleFile" />
+              <Input type="file" 
+                     name="file" 
+                     id="file"
+                     onChange={(e) => 
+                             this.handleChangeFile(e.target.files)}/>
               <FormText color="muted">
                 This is some placeholder block-level help text for the above input.
                 It's a bit lighter and easily wraps to a new line.
