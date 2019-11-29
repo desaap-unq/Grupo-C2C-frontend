@@ -1,24 +1,52 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { 
   Button,
   Row,
   Col, 
   CustomInput,
   Form, FormGroup, Label, Input, FormText, FormFeedback } from 'reactstrap';
+import API from "../../utils/api";
+
+const SERVICE_URL = `business`;
 
 class FormBusiness extends Component {
+
+  state = { 
+    name: ''
+  }
+
+  handleChange = event => {
+    this.setState({ 
+      name: event.target.value
+    });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const business = {
+      name: this.state.name
+    };
+
+    API.post(`${SERVICE_URL}/add`, { business })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
 
   render() {
     return (
       <>
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="name">Business Name</Label>
             <Input
                     type="text"
                     name="name"
                     id="name"
-                    placeholder="name"/>
+                    placeholder="name"
+                    onChange={this.handleChange}/>
             <FormFeedback tooltip>You will not be able to see this</FormFeedback>
             <FormText>Example help text that remains unchanged.</FormText>
           </FormGroup>
@@ -85,7 +113,7 @@ class FormBusiness extends Component {
             </div>  
           </FormGroup>
           <h3>
-            funcion Sliders()
+            funcion Sliders() | Gmaps
           </h3>
           <FormGroup row>
             <Label for="exampleFile" sm={2}>File</Label>
@@ -97,6 +125,8 @@ class FormBusiness extends Component {
               </FormText>
             </Col>
           </FormGroup>
+
+          <Button>Submit</Button>
         </Form>
       </>
     );
