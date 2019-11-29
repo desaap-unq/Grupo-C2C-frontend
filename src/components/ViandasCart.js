@@ -5,7 +5,7 @@ import {ItemMenu} from "../components/ItemMenu";
 export default class ViandasCart extends Component {
     constructor(props){
         super(props);
-        this.state = {totalPrice:0 , menusCart:[{quantity:1, menu:{id:1, name:"hamburguesa", price:200}},{quantity:2, menu:{id:2, name:"hamburguesa", price:150}}]}
+        this.state = {totalPrice:0}
         this.removeItem = this.removeItem.bind(this);
         this.updateTotalPrice = this.updateTotalPrice.bind(this);
     }
@@ -15,11 +15,14 @@ export default class ViandasCart extends Component {
     }
 
     removeItem(event){
-        this.setState({menusCart : this.state.menusCart.filter( orderItem => orderItem.menu.id !== parseInt(event.currentTarget.id) )}, this.updateTotalPrice);
+        
+        this.props.cart = this.props.cart.filter( orderItem => orderItem.menu.id !== parseInt(event.currentTarget.id) );
+        this.updateTotalPrice();
+         console.log(this.props.cart);
     }
 
     updateTotalPrice(){
-        this.setState({ totalPrice: this.state.menusCart.reduce((lastResult,orderMenu) =>{return lastResult + (orderMenu.quantity * orderMenu.menu.price) },0)});
+        this.setState({ totalPrice: this.props.cart.reduce((lastResult,orderMenu) =>{return lastResult + (orderMenu.quantity * orderMenu.menu.price) },0)});
     }
 
 
@@ -30,7 +33,7 @@ export default class ViandasCart extends Component {
                     <h4 className="pl-3 mt-0" >Tu Vianda </h4>
 
                 </div>
-                {this.state.menusCart.length === 0 ? 
+                {this.props.cart.length === 0 ? 
                     (<div className="d-flex justify-content-center">
                         <img
                             alt="..."
@@ -40,7 +43,7 @@ export default class ViandasCart extends Component {
                     </div>):
                     (<div>
                         
-                        {this.state.menusCart.map(item =>{return(<ItemMenu key={item.menu.id} id={item.menu.id} orderItem={item} removeItem={this.removeItem} />)})}
+                        {this.props.cart.map(item =>{return(<ItemMenu key={item.menu.id} id={item.menu.id} orderItem={item} removeItem={this.removeItem} />)})}
                         
                         <div className="row pt-4">
                             <h4 className="pl-3 mt-0 col-8 text-center" >TOTAL </h4>
