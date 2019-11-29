@@ -15,8 +15,7 @@ export default class ViandasCart extends Component {
     }
 
     removeItem(event){
-        
-        this.props.cart = this.props.cart.filter( orderItem => orderItem.menu.id !== parseInt(event.currentTarget.id) );
+        this.props.removeItems(event.currentTarget.id);
         this.updateTotalPrice();
          console.log(this.props.cart);
     }
