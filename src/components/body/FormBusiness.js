@@ -12,15 +12,9 @@ const SERVICE_URL = `business`;
 
 class FormBusiness extends Component {
 
-  state = { 
-    name: "",
-    phone: 1234,
-    logo: "",
-    locality: "",
-    address: "",
-    days: "",
-    description: "",
-    link: "website"
+  constructor(props){
+    super(props);
+    this.handleChangeFile = this.handleChangeFile.bind(this);
   }
 
   handleChange = event => {
@@ -28,8 +22,19 @@ class FormBusiness extends Component {
   }
 
   handleChangeFile(selectorFiles: FileList){
-      console.log(selectorFiles[0]);
+    this.toBase64(selectorFiles[0]).then((response, error) => {
+      // data:image/png;base64, iVBORw0KGgoAAAAN split
+      this.setState({file: response}, console.log(this.state));
+      this.setState({file: response}, console.log(this.state));
+    });
   }
+
+  toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
 
   handleSubmit = event => {
     event.preventDefault();
@@ -37,7 +42,7 @@ class FormBusiness extends Component {
     const business = new BusinessDto();
     business.name = this.state.name;
     business.phone = this.state.phone;
-    business.logo = this.state.logo;
+    business.logo = this.state.file;
     business.locality = this.state.locality;
     business.address = this.state.address;
     business.days = this.state.days;
@@ -152,7 +157,7 @@ class FormBusiness extends Component {
           <FormGroup row>
             <Label for="exampleFile" sm={2}>File</Label>
             <Col sm={10}>
-              <Input type="file" 
+              <input type="file" 
                      name="file" 
                      id="file"
                      onChange={(e) => 
