@@ -23,8 +23,8 @@ class FormBusiness extends Component {
 
   handleChangeFile(selectorFiles: FileList){
     this.toBase64(selectorFiles[0]).then((response, error) => {
-      // data:image/png;base64, iVBORw0KGgoAAAAN split
-      this.setState({file: response}, console.log(this.state));
+      // data:image/png;base64, iVBORw0KGgoAAAAN | go split business.js & headerBusiness.js
+      this.setState({file: response});
       this.setState({file: response}, console.log(this.state));
     });
   }
