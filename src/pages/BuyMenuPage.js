@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import ViandasNavBar from "../components/Navbars/ViandasNavBar.js";
 import ViandasyaHeader from "../components/Headers/ViandasyaHeader.js";
 import ViandasyaMenus from "../components/body/ViandasyaMenus.js";
-import axios from 'axios';
-
-const API_URL = 'http://localhost:8080';
-
+import API from "../utils/api";
 
 export default class BuyMenuPage extends Component {
     constructor() {
@@ -24,8 +21,8 @@ export default class BuyMenuPage extends Component {
 
     getBusiness() {
         const { match: { params } } = this.props;
-        console.log(`${API_URL}/business/${params.id}`);
-        axios.get(`${API_URL}/business/${params.id}`)
+        console.log(`API/business/${params.id}`);
+        API.get(`business/${params.id}`)
             .then(({ data: _business }) => {
                 console.log('business', _business);
 
@@ -35,7 +32,7 @@ export default class BuyMenuPage extends Component {
 
     getMenus() {
         const { match: { params } } = this.props;
-        axios.get(`${API_URL}/menu/business/${params.id}`)
+        API.get(`menu/business/${params.id}`)
             .then(({ data: _menus }) => {
                 console.log('menus', _menus);
 

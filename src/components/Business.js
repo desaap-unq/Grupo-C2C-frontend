@@ -16,7 +16,7 @@ class Business extends Component {
 	render() {
 		return (
 			<tr>
-				<td>{this.props.business.logo}</td>
+				<td>{<img src={`data:image/jpg;base64,${this.props.business.logo}`} alt={this.props.business.name}></img>}</td>
 				<td>{this.props.business.name}</td>
 				<td>{this.props.business.description}</td>
 				<td>

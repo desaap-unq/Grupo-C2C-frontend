@@ -19,7 +19,7 @@ export class BusinessHeader extends Component {
                         <img
                             alt="..."
                             className="creative-tim-logo"
-                            src={require("../../assets/img/mcDonalsLogo.png")}
+                            src={`data:image/jpg;base64,${this.props.business.logo}`}
                         />
                     </Col>
                     <Col md="3" className="pl-1">
