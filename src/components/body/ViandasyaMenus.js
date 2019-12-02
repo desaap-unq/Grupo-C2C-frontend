@@ -4,10 +4,6 @@ import {Row, Card, Button, CardBody,CardFooter,CardTitle} from "reactstrap";
 
 
 export default class ViandasyaMenu extends Component {
-    constructor(props){
-        super(props) 
-
-    }
 
     render() {
         return (

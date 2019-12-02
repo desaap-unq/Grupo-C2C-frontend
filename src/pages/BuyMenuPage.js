@@ -42,8 +42,8 @@ export default class BuyMenuPage extends Component {
 
     addToCart(item){
         
-        if (this.state.cart.some( orderItem => orderItem.menu.id  == item.currentTarget.id ) ) 
-            this.addQuantity(item.currentTarget.id);
+        if (this.state.cart.some( orderItem => orderItem.menu.id  === parseInt(item.currentTarget.id) ) ) 
+            this.addQuantity(parseInt(item.currentTarget.id));
         else
             this.setState({cart:this.updateCart(item.currentTarget.id) });
     }
@@ -59,14 +59,13 @@ export default class BuyMenuPage extends Component {
     }
 
     addQuantity(id){
-        let itemOrder = this.state.cart.find(item=>item.menu.id == id);
+        let itemOrder = this.state.cart.find(item=>item.menu.id === id);
         itemOrder.quantity++;
         this.setState({cart:this.state.cart})
-        console.log(this.state.cart);
     }
 
     createOrderItem(id){
-        return { quantity:1, menu: this.state.menus.find(menu=>menu.id == id) }; 
+        return { quantity:1, menu: this.state.menus.find(menu=>menu.id === parseInt(id)) }; 
     }
 
     getBusiness() {

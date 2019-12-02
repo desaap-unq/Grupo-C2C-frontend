@@ -4,9 +4,6 @@ import { Button, Badge } from "reactstrap";
 
 
 export class ItemMenu extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
         return (
             <div className="row d-flex align-items-center">
