@@ -2,21 +2,63 @@ import React, { Component } from "react";
 import ViandasNavBar from "../components/Navbars/ViandasNavBar.js";
 import ViandasyaHeader from "../components/Headers/ViandasyaHeader.js";
 import ViandasyaMenus from "../components/body/ViandasyaMenus.js";
+import ViandasCart from "../components/ViandasCart.js";
 import API from "../utils/api";
 
 export default class BuyMenuPage extends Component {
-    constructor() {
-        super();
-        this.state = { businesses: {} };
-        this.state = { menus: [] };
+    constructor(props) {
+        super(props);
+        this.state = { 
+            business: {},
+            menus: [],
+            cart: []};
 
-        this.menus = [{ "id": 1, "name": "Doble Cuarto", "description": "Doble carne, doble queso", "category": ["HAMBURGUESAS"], "deliveryCost": 0.0, "startDate": "2019-11-15", "dueDate": "2019-11-15", "deliveryTime": "21:20:00", "averageDeliveryTime": "21:20:00", "price": 250.0, "minimumQuantity": 1, "minimumQuantityPrice": 10.0, "minimumQuantityTwo": 2, "minimumQuantityPriceTwo": 20.0, "maximumAmountSalesPerDay": 20, "active": true, "business": { "id": 1, "name": "Mc Donald", "logo": "path Logo", "locality": "Quilmes", "phone": 15152659, "address": "Peatonal Rivadavia 112", "location": "gmaps coord", "description": "Vendemos las mejores hamburguesas", "link": "website", "email": "hamburguer@mcdonald.com", "schedule": "[08-23]", "days": "LunADom", "delivery": "distance min - delivery", "wallet": { "id": 2, "balance": 0.0 }, "balance": 0.0 } }, { "id": 2, "name": "TripleMc", "description": "Triple carne, aderezo casero", "category": ["HAMBURGUESAS"], "deliveryCost": 0.0, "startDate": "2019-11-15", "dueDate": "2019-11-15", "deliveryTime": "21:20:00", "averageDeliveryTime": "21:20:00", "price": 250.0, "minimumQuantity": 1, "minimumQuantityPrice": 10.0, "minimumQuantityTwo": 2, "minimumQuantityPriceTwo": 20.0, "maximumAmountSalesPerDay": 20, "active": true, "business": { "id": 1, "name": "Mc Donald", "logo": "path Logo", "locality": "Quilmes", "phone": 15152659, "address": "Peatonal Rivadavia 112", "location": "gmaps coord", "description": "Vendemos las mejores hamburguesas", "link": "website", "email": "hamburguer@mcdonald.com", "schedule": "[08-23]", "days": "LunADom", "delivery": "distance min - delivery", "wallet": { "id": 2, "balance": 0.0 }, "balance": 0.0 } }];
-        this.business = this.menus[0].business;
+        this.addToCart = this.addToCart.bind(this); 
+        this.createOrderItem = this.createOrderItem.bind(this); 
+        this.updateCart = this.updateCart.bind(this); 
+        this.removeItem = this.removeItem.bind(this); 
+        this.addQuantity = this.addQuantity.bind(this); 
+        this.clearCart = this.clearCart.bind(this); 
+        
     }
 
+    clearCart(){
+        this.setState({cart:[]});
+    }
+    
     componentDidMount() {
+        this.setState({menus:[]});
         this.getMenus();
         this.getBusiness();
+        
+    }
+
+    addToCart(item){
+        
+        if (this.state.cart.some( orderItem => orderItem.menu.id  === parseInt(item.currentTarget.id) ) ) 
+            this.addQuantity(parseInt(item.currentTarget.id));
+        else
+            this.setState({cart:this.updateCart(item.currentTarget.id) });
+    }
+    
+    removeItem(id){
+        this.setState({cart:this.state.cart.filter( orderItem => orderItem.menu.id !== parseInt(id) )});    
+    }
+
+    updateCart(id){
+        let currentCart = this.state.cart;
+        currentCart.push(this.createOrderItem(id));
+        return  currentCart;
+    }
+
+    addQuantity(id){
+        let itemOrder = this.state.cart.find(item=>item.menu.id === id);
+        itemOrder.quantity++;
+        this.setState({cart:this.state.cart})
+    }
+
+    createOrderItem(id){
+        return { quantity:1, menu: this.state.menus.find(menu=>menu.id === parseInt(id)) }; 
     }
 
     getBusiness() {
@@ -34,7 +76,6 @@ export default class BuyMenuPage extends Component {
         const { match: { params } } = this.props;
         API.get(`menu/business/${params.id}`)
             .then(({ data: _menus }) => {
-                console.log('menus', _menus);
 
                 this.setState({ menus: _menus });
             });
@@ -45,7 +86,22 @@ export default class BuyMenuPage extends Component {
             <div>
                 <ViandasNavBar />
                 <ViandasyaHeader business={this.state.business} />
-                <ViandasyaMenus menus={this.state.menus} />
+                <div className="row">
+                    <div className="col-md-2">
+                        
+                    </div>
+                    <div className="col-md-6">
+                        <ViandasyaMenus  menus={this.state.menus}  addToCart={this.addToCart}/>
+
+                    </div>
+                    <div className="col-md-3 cart-responvive ">
+                        <ViandasCart cart={this.state.cart } clearCart={this.clearCart} removeItems={this.removeItem}/>
+                    </div>
+                    <div className="col-md-1">
+                        
+                    </div>
+
+                </div>
 
             </div>
         );
