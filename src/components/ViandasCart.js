@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import {Button} from "reactstrap";
 import {ItemMenu} from "../components/ItemMenu";
+import {BuySuccessfullModal} from "../components/modals/BuySuccessfullModal";
+import axios from 'axios';
+
+const API_URL = 'http://localhost:8080';
 
 export default class ViandasCart extends Component {
     constructor(props){
@@ -8,6 +12,30 @@ export default class ViandasCart extends Component {
         this.state = {totalPrice:0}
         this.removeItem = this.removeItem.bind(this);
         this.updateTotalPrice = this.updateTotalPrice.bind(this);
+        this.buyMenus = this.buyMenus.bind(this);
+        this.clearCart = this.clearCart.bind(this);
+    }
+
+    clearCart(){
+        this.props.clearCart();
+    }
+
+    buyMenus(){
+    const orderItems = this.props.cart.map(item=>{return {menuId:item.menu.id, quantity:item.quantity}});
+        
+    const body = {
+        clientId:1,
+        delivery:true,
+        items:orderItems,
+        deliveryTime:"17:00",
+        dispatchDate:"2019-10-27"
+    };
+        
+        axios.post(`${API_URL}/order`,body)
+            .then(({ data: order }) => {
+            alert("La compra ser realizo correctamente");
+            this.clearCart();    
+            },()=>{ alert("No se realizo la compra vuelva a intentarlo"); this.clearCart()} );
     }
 
     componentDidMount() {
@@ -15,13 +43,12 @@ export default class ViandasCart extends Component {
     }
     
     componentWillReceiveProps() {
-        console.log("paso por");
         this.updateTotalPrice();
     }
     
-    removeItem(event){
-        this.props.removeItems(event.currentTarget.id);
-        this.updateTotalPrice();
+    async removeItem(event){
+        await this.props.removeItems(event.currentTarget.id);
+        await this.updateTotalPrice();
     }
 
     updateTotalPrice(){
@@ -50,17 +77,16 @@ export default class ViandasCart extends Component {
                         
                         <div className="row pt-4">
                             <h4 className="pl-3 mt-0 col-8 text-center" >TOTAL </h4>
-                            <h4 className="pl-3 mt-0 col-4"> {this.state.totalPrice}</h4>
+                            <h4 className="pl-3 mt-0 col-4">${this.state.totalPrice}</h4>
 
                         </div>
                         
                         <div className="row">
-                            <Button className="offset-2 col-8 mb-3 mt-4 btn-danger">Continuar</Button>
+                            <Button className="offset-2 col-8 mb-3 mt-4 btn-danger" onClick={this.buyMenus}>Continuar</Button>
                         </div>
                     
                     </div>)}
                     
-
 
             </div>
 

@@ -23,7 +23,12 @@ export default class BuyMenuPage extends Component {
         this.updateCart = this.updateCart.bind(this); 
         this.removeItem = this.removeItem.bind(this); 
         this.addQuantity = this.addQuantity.bind(this); 
+        this.clearCart = this.clearCart.bind(this); 
         
+    }
+
+    clearCart(){
+        this.setState({cart:[]});
     }
     
     componentDidMount() {
@@ -55,7 +60,9 @@ export default class BuyMenuPage extends Component {
 
     addQuantity(id){
         let itemOrder = this.state.cart.find(item=>item.menu.id == id);
-        itemOrder.quantity++;;
+        itemOrder.quantity++;
+        this.setState({cart:this.state.cart})
+        console.log(this.state.cart);
     }
 
     createOrderItem(id){
@@ -95,7 +102,7 @@ export default class BuyMenuPage extends Component {
 
                     </div>
                     <div className="col-md-3 cart-responvive ">
-                        <ViandasCart cart={this.state.cart } removeItems={this.removeItem}/>
+                        <ViandasCart cart={this.state.cart } clearCart={this.clearCart} removeItems={this.removeItem}/>
                     </div>
                     <div className="col-md-1">
                         

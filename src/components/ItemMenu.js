@@ -6,16 +6,22 @@ import { Button, Badge } from "reactstrap";
 export class ItemMenu extends Component {
     constructor(props) {
         super(props)
-        console.log(this.props.orderItem.menu.name);
     }
     render() {
         return (
             <div className="row d-flex align-items-center">
+                
+                <div className="col-2">
+                    <Badge className="mb-0 " color="secondary">{this.props.orderItem.quantity}</Badge>
 
-                <p className="col-8">{this.props.orderItem.menu.name}</p>
+                </div>
+                <div className="col-6">
+                    <p>{this.props.orderItem.menu.name}</p>
+
+                </div>
                 
                 <div className="col-2 pl-0">
-                    <Badge className="mb-0 " color="secondary">$240</Badge>
+                    <Badge className="mb-0 " color="secondary">${this.props.orderItem.menu.price}</Badge>
 
                 </div>
                 <div className="col-2">
