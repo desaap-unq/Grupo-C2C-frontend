@@ -1,66 +1,21 @@
-import React from 'react';
-//import logo from './logo.svg';
-import './App.css';
-import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+import React from "react";
+import NavBar from "./components/Navbars/NavBar";
+import { useAuth0 } from "./react-auth0-spa";
 
-const coords = {
-  // UNQ - location
-  // BROWSER=chrome npm start | choose browser
-  lat: -34.706501,
-  lng: -58.2807187
-};
+function App() {
+  const { loading } = useAuth0();
 
-const params = {v: '3.exp', key: 'AIzaSyCk9lUgqQBF_EojnEsDkspDDp-ozqf1rnA'};
-class App extends React.Component {
-
-  onMapCreated(map) {
-    map.setOptions({
-      disableDefaultUI: true
-    });
+  if (loading) {
+    return <div>Loading...</div>;
   }
 
-  onDragEnd(e) {
-    console.log('onDragEnd', e);
-  }
-
-  onCloseClick() {
-    console.log('onCloseClick');
-  }
-
-  onClick(e) {
-    console.log('onClick', e);
-  }
-
-  render() {
-    return (
-      <Gmaps
-        width={'800px'}
-        height={'600px'}
-        lat={coords.lat}
-        lng={coords.lng}
-        zoom={12}
-        loadingMessage={'Be happy'}
-        params={params}
-        onMapCreated={this.onMapCreated}>
-        <Marker
-          lat={coords.lat}
-          lng={coords.lng}
-          draggable={true}
-          onDragEnd={this.onDragEnd} />
-        <InfoWindow
-          lat={coords.lat}
-          lng={coords.lng}
-          content={'node_js + java :)'}
-          onCloseClick={this.onCloseClick} />
-        <Circle
-          lat={coords.lat}
-          lng={coords.lng}
-          radius={500}
-          onClick={this.onClick} />
-      </Gmaps>
-    );
-  }
-
-};
+  return (
+    <div className="App">
+      <header>
+        <NavBar />
+      </header>
+    </div>
+  );
+}
 
 export default App;
