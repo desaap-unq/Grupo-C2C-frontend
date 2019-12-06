@@ -87,3 +87,24 @@
     padding-left: 27px;
     padding-right: 27px;
 }
+
+.business-load-form{
+    z-index: 1040;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    font-weight: 500;
+    color: white;
+    
+}
+
+.business-load-form label{
+    
+    font-weight: 500;
+    color: white;
+}
+
+.business-load-form {
+    
+    font-weight: 500;
+    color: #f5593d;
+}
