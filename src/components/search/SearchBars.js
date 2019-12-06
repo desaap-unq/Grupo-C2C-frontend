@@ -5,7 +5,7 @@ import {
   Col,
   InputGroupAddon,
   Input,
-  InputGroupText,
+  Button,
   Container
 } from "reactstrap";
 
@@ -33,12 +33,10 @@ class SearchBars extends Component {
         <InputGroup>
           <Col className="offset-1 col-md-10 mt-4">
             <InputGroupAddon addonType="append">
-              <Input placeholder="Que comemos!" type="text" value={this.state.food} onChange={this.updateInput} ></Input>
-              <InputGroupText>
-                <button className="glyphicon glyphicon-search" onClick={this.redirecSearch}>
-                  <i aria-hidden={true} className="fa fa-search" />
-                </button>
-              </InputGroupText>
+              <Input className="form-control" placeholder="Que comemos!" type="text" value={this.state.food} onChange={this.updateInput} ></Input>
+                <Button className="btn btn-danger" onClick={this.redirecSearch}>
+                  Buscar
+                </Button>
             </InputGroupAddon>
           </Col>
         </InputGroup>

@@ -21,7 +21,7 @@ export default class HomePage extends Component {
                     <div className="content-center mt-0">
                         <Container>
                             <div className="title-brand">
-                                <h1 className="presentation-title">Viandas YA</h1>
+                                <h1 className="presentation-title">Viandas Ya</h1>
                             </div>
                             <h2 className="presentation-subtitle text-center mt-0">
                                 Hace tu Pedido y recibilo en tu casa ya!
