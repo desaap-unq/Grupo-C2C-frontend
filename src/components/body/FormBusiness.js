@@ -62,7 +62,7 @@ class FormBusiness extends Component {
       <>
         <div className="col-8 col-sm-8 col-lg-6 col-xl-4 col-md-6 business-load-form background-form  ">
           <h2 className="text-center mt-3 font-weight-bold">Carga tu negocio</h2>  
-          <Form className="mt-2" onSubmit={this.handleSubmit}>
+          <Form className="mt-2" onSubmit={this.handleSubmit} autoComplete="none">
             <FormGroup>
               <Label for="name">Nombre de tu negocio</Label>
               <Input
@@ -76,7 +76,7 @@ class FormBusiness extends Component {
             <Row form>
               <Col md={6}>
                 <FormGroup>
-                  <Label for="locality">Locality</Label>
+                  <Label for="locality">Localidad</Label>
                   <Input type="text"
                     name="locality"
                     id="locality"
@@ -85,7 +85,7 @@ class FormBusiness extends Component {
               </Col>
               <Col md={6}>
                 <FormGroup>
-                  <Label for="address">Address</Label>
+                  <Label for="address">Dirrecion</Label>
                   <Input type="text"
                     name="address"
                     id="address"
@@ -94,7 +94,7 @@ class FormBusiness extends Component {
               </Col>
             </Row>
             <FormGroup>
-              <Label for="description">Description</Label>
+              <Label for="description">Descripcion</Label>
               <Input type="textarea"
                 name="description"
                 id="description"
@@ -126,7 +126,7 @@ class FormBusiness extends Component {
               </Col>
               <Col md={6}>
                 <FormGroup>
-                  <Label for="phone">Number</Label>
+                  <Label for="phone">Numero</Label>
                   <Input
                     type="number"
                     name="phone"
@@ -157,7 +157,7 @@ class FormBusiness extends Component {
             <FormGroup>
               <div className="col pl-0">
                 <Label for="exampleFile">Logo</Label>
-                <input type="file"
+                <input className="pl-4" type="file"
                   name="file"
                   id="file"
                   onChange={(e) =>
