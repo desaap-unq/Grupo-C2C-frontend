@@ -171,7 +171,7 @@ class FormBusiness extends Component {
             
             </FormGroup>
 
-            <Button className="mb-3">Enviar</Button>
+            <Button className="btn-danger mb-3">Enviar</Button>
           </Form>
         </div>
       </>
