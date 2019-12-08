@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-
+import { useAuth0 } from "../../contexts/auth0-context";
 import {
   Button,
   Collapse,
@@ -13,6 +13,8 @@ import {
 } from "reactstrap";
 
 function ViandasNavBar() {
+  const {isLoading, user, loginWithRedirect, logout} = useAuth0();
+
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -114,15 +116,37 @@ function ViandasNavBar() {
               </NavLink>
             </NavItem>
             <NavItem>
+
+              {/* if there is no user. show the login button 
               <Button
                 className="btn-round"
                 color="danger"
                 href="#pablo"
                 target="_blank"
-                disabled
               >
                 Registrate
               </Button>
+              */}
+              <div className="navbar-end">
+              {!isLoading && !user && (
+                <button onClick={loginWithRedirect} className="navbar-item">
+                  Login
+                </button>
+              )}
+
+              {/* if there is a user. show user name and logout button */}
+              {!isLoading && user && (
+                <>
+                  <button className="navbar-item">{user.name}</button>
+                  <button
+                    onClick={() => logout({ returnTo: window.location.origin })}
+                    className="navbar-item"
+                  >
+                    Logout
+                  </button>
+                </>
+              )}
+              </div>
             </NavItem>
           </Nav>
         </Collapse>
