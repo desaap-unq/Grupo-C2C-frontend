@@ -9,10 +9,14 @@ import {
   NavItem,
   NavLink,
   Nav,
+  ButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
   Container
 } from "reactstrap";
 
-function ViandasNavBar() {
+function ViandasNavBar(props) {
   const {isLoading, user, loginWithRedirect, logout} = useAuth0();
 
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
@@ -22,6 +26,15 @@ function ViandasNavBar() {
     setNavbarCollapse(!navbarCollapse);
     document.documentElement.classList.toggle("nav-open");
   };
+
+  const redirectBusiness = () => {
+    console.log(window.location.origin);
+    props.history.push("/business/load");
+  };
+
+  const [dropdownOpen, setOpen] = React.useState(false);
+
+  const toggle = () => setOpen(!dropdownOpen);
 
   React.useEffect(() => {
     const updateNavbarColor = () => {
@@ -107,43 +120,36 @@ function ViandasNavBar() {
                 <p className="d-lg-none">Instagram</p>
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink
-                href="/login"
-                target="_blank"
-              >
-                <i className="nc-icon nc-book-bookmark" /> Ingresar
-              </NavLink>
-            </NavItem>
+            
             <NavItem>
 
-              {/* if there is no user. show the login button 
-              <Button
-                className="btn-round"
-                color="danger"
-                href="#pablo"
-                target="_blank"
-              >
-                Registrate
-              </Button>
-              */}
+              {/* if there is no user. show the login button */}
               <div className="navbar-end">
               {!isLoading && !user && (
-                <button onClick={loginWithRedirect} className="navbar-item">
+                <Button className="btn btn-danger" onClick={loginWithRedirect}>
                   Login
-                </button>
+                </Button>
               )}
 
               {/* if there is a user. show user name and logout button */}
               {!isLoading && user && (
                 <>
-                  <button className="navbar-item">{user.name}</button>
-                  <button
-                    onClick={() => logout({ returnTo: window.location.origin })}
-                    className="navbar-item"
+                  <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+                    <DropdownToggle caret color="primary">
+                      {user.name}
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem onClick={redirectBusiness}>Carga tu Negocio</DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>Another Action</DropdownItem>
+                    </DropdownMenu>
+                  </ButtonDropdown>
+                  <Button
+                    className="btn btn-danger"
+                    onClick={() => logout({ returnTo: "http://localhost:3000/index" })}
                   >
                     Logout
-                  </button>
+                  </Button>
                 </>
               )}
               </div>

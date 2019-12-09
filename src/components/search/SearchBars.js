@@ -17,6 +17,7 @@ class SearchBars extends Component {
     this.state={food:""};
     this.updateInput =this.updateInput.bind(this);
     this.redirecSearch =this.redirecSearch.bind(this);
+    this.redirecBusiness = this.redirecBusiness.bind(this);
   }
   
   updateInput(event){
@@ -25,6 +26,10 @@ class SearchBars extends Component {
 
   redirecSearch(){
     this.props.history.push("/search/" + this.state.food);
+  }
+
+  redirecBusiness() {
+   this.props.history.push("/business/load"); 
   }
 
   render() {
@@ -38,6 +43,9 @@ class SearchBars extends Component {
                   Buscar
                 </Button>
             </InputGroupAddon>
+            <Button className="btn btn-danger" onClick={this.redirecBusiness}>
+              Carga tu Negocio
+            </Button>
           </Col>
         </InputGroup>
       </Container >

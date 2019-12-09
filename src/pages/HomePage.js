@@ -9,7 +9,7 @@ export default class HomePage extends Component {
     render() {
         return (
             <>
-                <ViandasNavBar />
+                <ViandasNavBar history={this.props.history}/>
                 <div
                     className="page-header section-dark"
                     style={{
