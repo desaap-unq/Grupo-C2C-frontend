@@ -5,6 +5,7 @@ import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
 
 // core components
 import ViandasNavBar from "../components/Navbars/ViandasNavBar.js";
+import ViandasYaFooter from "../components/Footers/ViandasYaFooter";
 
 function LoginPage() {
   document.documentElement.classList.remove("nav-open");
@@ -79,12 +80,7 @@ function LoginPage() {
             </Col>
           </Row>
         </Container>
-        <div className="footer register-footer text-center">
-          <h6>
-            © {new Date().getFullYear()}, made with{" "}
-            <i className="fa fa-heart heart" /> by Viandas Ya
-          </h6>
-        </div>
+        <ViandasYaFooter/>
       </div>
     </>
   );

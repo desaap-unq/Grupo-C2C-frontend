@@ -12,9 +12,10 @@ export class BusinessHeader extends Component {
         console.log(this.props);
         return (
             <div>
-                {this.props.business === undefined ? (<Spinner animation="border" role="status">
-  <span className="sr-only">Loading...</span>
-</Spinner>):(<Row>
+                {this.props.business === undefined ? 
+                (<Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>)
+                :
+                (<Row>
                     <Col md="2" className="pr-0 pl-5">
                         <img
                             alt="..."
