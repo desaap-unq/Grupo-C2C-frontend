@@ -28,8 +28,16 @@ function ViandasNavBar(props) {
   };
 
   const redirectBusiness = () => {
-    console.log(window.location.origin);
     props.history.push("/business/load");
+  };
+
+  const redirectMenu = () => {
+    // props.history.push("/");
+  };
+
+  const redirectIndx = () => {
+    console.log(props);
+    props.history.push("/index");
   };
 
   const [dropdownOpen, setOpen] = React.useState(false);
@@ -141,7 +149,9 @@ function ViandasNavBar(props) {
                     <DropdownMenu>
                       <DropdownItem onClick={redirectBusiness}>Carga tu Negocio</DropdownItem>
                       <DropdownItem divider/>
-                      <DropdownItem>Another Action</DropdownItem>
+                      <DropdownItem onClick={redirectMenu}>Carga Menu</DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem onClick={redirectIndx}>Inicio</DropdownItem>
                     </DropdownMenu>
                   </ButtonDropdown>
                   <Button
