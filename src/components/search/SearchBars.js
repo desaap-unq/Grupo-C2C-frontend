@@ -34,9 +34,9 @@ class SearchBars extends Component {
           <Col className="offset-1 col-md-10 mt-4">
             <InputGroupAddon addonType="append">
               <Input className="form-control" placeholder="Que comemos!" type="text" value={this.state.food} onChange={this.updateInput} ></Input>
-                <Button className="btn btn-danger" onClick={this.redirecSearch}>
-                  Buscar
-                </Button>
+              <Button className="btn btn-danger" onClick={this.redirecSearch}>
+                Buscar
+              </Button>
             </InputGroupAddon>
           </Col>
         </InputGroup>

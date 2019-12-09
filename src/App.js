@@ -1,66 +1,41 @@
-import React from 'react';
-//import logo from './logo.svg';
-import './App.css';
-import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+import React from "react";
+import "./App.css";
+import { useAuth0 } from "./contexts/auth0-context";
+import Auth0Header from "./components/Headers/Auth0Header";
 
-const coords = {
-  // UNQ - location
-  // BROWSER=chrome npm start | choose browser
-  lat: -34.706501,
-  lng: -58.2807187
-};
+function App() {
+  // const {isLoading, user, loginWithRedirect, logout} = useAuth0();
 
-const params = {v: '3.exp', key: 'AIzaSyCk9lUgqQBF_EojnEsDkspDDp-ozqf1rnA'};
-class App extends React.Component {
+  return (
+    // <>
+    // <Auth0Header />
+    // <div className="App">
+    //   {!isLoading && !user && (
+    //     <>
+          <h1> Clic Below! </h1>
+    //       <button onClick={loginWithRedirect} >
+    //         Login
+    //       </button>
+    //     </>
+    //   )}
+    //   {!isLoading && user && (
+    //     <>
+    //       <h1> You are Logged in! </h1>
+    //       <p> hello {user.name} </p>
 
-  onMapCreated(map) {
-    map.setOptions({
-      disableDefaultUI: true
-    });
-  }
+    //       {user.picture && <img src={user.picture} alt="My Avatar" />}
+    //       <hr />
 
-  onDragEnd(e) {
-    console.log('onDragEnd', e);
-  }
-
-  onCloseClick() {
-    console.log('onCloseClick');
-  }
-
-  onClick(e) {
-    console.log('onClick', e);
-  }
-
-  render() {
-    return (
-      <Gmaps
-        width={'800px'}
-        height={'600px'}
-        lat={coords.lat}
-        lng={coords.lng}
-        zoom={12}
-        loadingMessage={'Be happy'}
-        params={params}
-        onMapCreated={this.onMapCreated}>
-        <Marker
-          lat={coords.lat}
-          lng={coords.lng}
-          draggable={true}
-          onDragEnd={this.onDragEnd} />
-        <InfoWindow
-          lat={coords.lat}
-          lng={coords.lng}
-          content={'node_js + java :)'}
-          onCloseClick={this.onCloseClick} />
-        <Circle
-          lat={coords.lat}
-          lng={coords.lng}
-          radius={500}
-          onClick={this.onClick} />
-      </Gmaps>
-    );
-  }
-
-};
+    //       <button
+    //         onClick={() => logout({returnTo: window.location.origin})}
+    //       >
+    //         LogOut
+    //       </button>  
+    //     </>
+    //   )}
+    // </div>
+    // </>
+  );
+}
 
 export default App;

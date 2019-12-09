@@ -9,7 +9,7 @@ class LoadBusinessPage extends Component {
     render() {
         return (
           <>
-            <ViandasNavBar />
+            <ViandasNavBar history={this.props.history}/>
             <div
               className="page-header"
               style={{

@@ -41,7 +41,7 @@ class SearchPage extends Component {
   render() {
   return (
       <>
-        <ViandasNavBar/>
+        <ViandasNavBar history={this.props.history}/>
         <SearchPageHeader businesses={this.state.businesses} />
         <div className="main">
           <div className="section text-center">

@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-
+import { useAuth0 } from "../../contexts/auth0-context";
 import {
   Button,
   Collapse,
@@ -9,10 +9,16 @@ import {
   NavItem,
   NavLink,
   Nav,
+  ButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
   Container
 } from "reactstrap";
 
-function ViandasNavBar() {
+function ViandasNavBar(props) {
+  const {isLoading, user, loginWithRedirect, logout} = useAuth0();
+
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -20,6 +26,23 @@ function ViandasNavBar() {
     setNavbarCollapse(!navbarCollapse);
     document.documentElement.classList.toggle("nav-open");
   };
+
+  const redirectBusiness = () => {
+    props.history.push("/business/load");
+  };
+
+  const redirectMenu = () => {
+    // props.history.push("/");
+  };
+
+  const redirectIndx = () => {
+    console.log(props);
+    props.history.push("/index");
+  };
+
+  const [dropdownOpen, setOpen] = React.useState(false);
+
+  const toggle = () => setOpen(!dropdownOpen);
 
   React.useEffect(() => {
     const updateNavbarColor = () => {
@@ -105,24 +128,41 @@ function ViandasNavBar() {
                 <p className="d-lg-none">Instagram</p>
               </NavLink>
             </NavItem>
+            
             <NavItem>
-              <NavLink
-                href="/login"
-                target="_blank"
-              >
-                <i className="nc-icon nc-book-bookmark" /> Ingresar
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <Button
-                className="btn-round"
-                color="danger"
-                href="#pablo"
-                target="_blank"
-                disabled
-              >
-                Registrate
-              </Button>
+
+              {/* if there is no user. show the login button */}
+              <div className="navbar-end">
+              {!isLoading && !user && (
+                <Button className="btn btn-danger" onClick={loginWithRedirect}>
+                  Login
+                </Button>
+              )}
+
+              {/* if there is a user. show user name and logout button */}
+              {!isLoading && user && (
+                <>
+                  <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+                    <DropdownToggle caret color="primary">
+                      {user.name}
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem onClick={redirectBusiness}>Carga tu Negocio</DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem onClick={redirectMenu}>Carga Menu</DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem onClick={redirectIndx}>Inicio</DropdownItem>
+                    </DropdownMenu>
+                  </ButtonDropdown>
+                  <Button
+                    className="btn btn-danger"
+                    onClick={() => logout({ returnTo: "http://localhost:3000/index" })}
+                  >
+                    Logout
+                  </Button>
+                </>
+              )}
+              </div>
             </NavItem>
           </Nav>
         </Collapse>
