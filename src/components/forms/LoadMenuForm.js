@@ -63,9 +63,17 @@ class LoadMenuForm extends Component {
                 <FormGroup>
                   <Label for="categoria">Categoria</Label>
                   <Input type="select"
-                    name="categoria"
-                    id="categoria"
-                    onChange={this.handleChange} />
+                         name="categoria"
+                         id="categoria"
+                         onChange={this.handleChange} >
+                    <option>HAMBURGUESAS</option>
+                    <option>CERVEZA</option>
+                    <option>PIZZA</option>
+                    <option>SUSHI</option>
+                    <option>EMPANADAS</option>
+                    <option>GREEN</option>
+                    <option>VEGANO</option>
+                  </Input>
                 </FormGroup>
               </Col>
               <Col md={4}>

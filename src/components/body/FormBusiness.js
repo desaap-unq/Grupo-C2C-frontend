@@ -53,7 +53,7 @@ class FormBusiness extends Component {
     API.post(`${SERVICE_URL}/add`, business)
       .then(res => {
         console.log(res);
-        console.log(res.data);
+        alert("El negocio se cargo correctamente");
       })
   }
 
