@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, 
          Route, Redirect, Switch } from 'react-router-dom';
 
-import * as serviceWorker from './serviceWorker';
-
 import './assets/css/bootstrap.min.css';
 import './assets/css/paper-kit.css';
 import './assets/css/viandas-ya.css';
@@ -17,11 +15,14 @@ import BuyMenuPage from './pages/BuyMenuPage';
 import LoginPage from './pages/LoginPage';
 import LoadBusinessPage from './pages/LoadBusinessPage';
 import LoadMenuPage from './pages/LoadMenuPage';
+import App from './App';
 
 import { Auth0Provider } from "./contexts/auth0-context";
 
 // BROWSER=chrome npm start | choose browser
 // mvn spring-boot:run
+
+const rootElement = document.getElementById("root");
 
 ReactDOM.render(
   <Auth0Provider>
@@ -35,12 +36,9 @@ ReactDOM.render(
         <Route path="/login" render={props => <LoginPage {...props} />} />,
         <Route path="/loadBusiness" render={props => <LoadBusinessPage {...props} />} />,
         <Route path="/business/:id" render={props => <LoadMenuPage {...props} />} />,
+        <Route path="/gmaps" render={props => <App {...props} />} />,
         <Redirect to="/index" />
       </Switch>
     </Router>
 
-  </Auth0Provider>,
-  document.getElementById("root")
-);
-
-serviceWorker.unregister();
+  </Auth0Provider>, rootElement);
