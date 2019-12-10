@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, 
          Route, Redirect, Switch } from 'react-router-dom';
-import './index.css';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -20,7 +19,6 @@ import LoadBusinessPage from './pages/LoadBusinessPage';
 import LoadMenuPage from './pages/LoadMenuPage';
 
 import { Auth0Provider } from "./contexts/auth0-context";
-// import App from "./App";
 
 // BROWSER=chrome npm start | choose browser
 // mvn spring-boot:run

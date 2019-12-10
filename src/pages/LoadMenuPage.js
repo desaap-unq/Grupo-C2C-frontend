@@ -6,7 +6,7 @@ export default class LoadMenuPage extends Component{
     render(){
         return(
             <>
-             <TemplatePage>
+             <TemplatePage history={this.props.history}>
                  <LoadMenuForm props={this.props}/>
              </TemplatePage>
             </>
