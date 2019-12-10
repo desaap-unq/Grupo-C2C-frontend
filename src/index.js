@@ -12,15 +12,12 @@ import './assets/css/viandas-ya.css';
 import './assets/demo/demo.css';
 
 import Index from './views/Index';
-import NucleoIcons from './views/NucleoIcons';
-import LandingPage from './views/examples/LandingPage';
-import ProfilePage from './views/examples/ProfilePage';
-import RegisterPage from './views/examples/RegisterPage';
 import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
 import BuyMenuPage from './pages/BuyMenuPage';
 import LoginPage from './pages/LoginPage';
 import LoadBusinessPage from './pages/LoadBusinessPage';
+import LoadMenuPage from './pages/LoadMenuPage';
 
 import { Auth0Provider } from "./contexts/auth0-context";
 // import App from "./App";
@@ -38,23 +35,8 @@ ReactDOM.render(
         <Route path="/business/:id/menu" render={props => <BuyMenuPage {...props} />} />,
         <Route path="/indexExample" render={props => <Index {...props} />} />,
         <Route path="/login" render={props => <LoginPage {...props} />} />,
-        <Route path="/business/load" render={props => <LoadBusinessPage {...props} />} />,
-        <Route
-          path="/nucleo-icons"
-          render={props => <NucleoIcons {...props} />}
-        />
-        <Route
-          path="/landing-page"
-          render={props => <LandingPage {...props} />}
-        />
-        <Route
-          path="/profile-page"
-          render={props => <ProfilePage {...props} />}
-        />
-        <Route
-          path="/register-page"
-          render={props => <RegisterPage {...props} />}
-        />
+        <Route path="/loadBusiness" render={props => <LoadBusinessPage {...props} />} />,
+        <Route path="/business/:id" render={props => <LoadMenuPage {...props} />} />,
         <Redirect to="/index" />
       </Switch>
     </Router>

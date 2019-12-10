@@ -28,11 +28,11 @@ function ViandasNavBar(props) {
   };
 
   const redirectBusiness = () => {
-    props.history.push("/business/load");
+    props.history.push("/loadBusiness");
   };
 
   const redirectMenu = () => {
-    // props.history.push("/");
+    props.history.push("/business/1");
   };
 
   const redirectIndx = () => {
