@@ -11,7 +11,8 @@ import './assets/demo/demo.css';
 import Index from './views/Index';
 import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
-import BuyMenuPage from './pages/BuyMenuPage';
+// import BuyMenuPage from './pages/BuyMenuPage';
+import BuyMenuPage2 from './pages/BuyMenuPage2';
 import LoginPage from './pages/LoginPage';
 import LoadBusinessPage from './pages/LoadBusinessPage';
 import LoadMenuPage from './pages/LoadMenuPage';
@@ -31,7 +32,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/index" render={props => <HomePage {...props} />} />,
         <Route path="/search/:food" render={props => <SearchPage {...props} />} />,
-        <Route path="/business/:id/menu" render={props => <BuyMenuPage {...props} />} />,
+        <Route path="/business/:id/menu" render={props => <BuyMenuPage2 {...props} />} />,
         <Route path="/indexExample" render={props => <Index {...props} />} />,
         <Route path="/login" render={props => <LoginPage {...props} />} />,
         <Route path="/loadBusiness" render={props => <LoadBusinessPage {...props} />} />,
