@@ -9,7 +9,6 @@ export default class TemplateWithHeaderPage extends Component{
         return (
             <div>
                 <ViandasNavBar history={this.props.history}/>
-                {/* <ViandasyaHeader business={this.state.business} > */}
                 <ViandasyaHeader>
                     {React.Children.toArray(this.props.children)[0]}
                 </ViandasyaHeader>

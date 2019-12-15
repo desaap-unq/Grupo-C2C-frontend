@@ -19,6 +19,7 @@ import LoadMenuPage from './pages/LoadMenuPage';
 import App from './App';
 
 import { Auth0Provider } from "./contexts/auth0-context";
+import HistoryOrderPage from './pages/HistoryOrderPage';
 
 // BROWSER=chrome npm start | choose browser
 // mvn spring-boot:run
@@ -37,6 +38,7 @@ ReactDOM.render(
         <Route path="/login" render={props => <LoginPage {...props} />} />,
         <Route path="/loadBusiness" render={props => <LoadBusinessPage {...props} />} />,
         <Route path="/business/:id" render={props => <LoadMenuPage {...props} />} />,
+        <Route path="/client/:id/history" render={props => <HistoryOrderPage {...props} />} />,
         <Route path="/gmaps" render={props => <App {...props} />} />,
         <Redirect to="/index" />
       </Switch>

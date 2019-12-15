@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
-import Business from './Business';
+import { Table,Container } from 'reactstrap';
+import Order from './Order';
 
 class ClientTableOrderList extends Component {
 	render() {
@@ -8,20 +8,35 @@ class ClientTableOrderList extends Component {
 			<Order key={order.id} order={order}/>
 		);
 		return(
-			<Table striped hover>
-				<tbody>
-					<tr>
+			<div>
+			{/* <div className="col-3"></div> */}
+			<div className="offset-md-2 col-md-8">
+				<div className="text-center pb-3 ">
+					<h1 className="mt-3">Historial de Pedidos</h1>
+				</div>
+
+				<Table striped hover>
+					<tbody>
+						<tr>
 						<th>Pedido N°</th>
-						<th>Menu</th>
+						<th>Detalle</th>
 						<th>Precio</th>
 						<th>Negocio</th>
-						<th>*</th>
-					</tr>
-					{orders}
-				</tbody>
-			</Table>
+						<th>Fecha de pedido</th>
+						<th>delivery</th>
+						<th>estado</th>
+						</tr>
+						{orders}
+					</tbody>
+				</Table>
+
+			</div>
+			<div className="col-3"></div>
+			</div>	
 		)
 	}
 }
 
 export default ClientTableOrderList;
+
+
