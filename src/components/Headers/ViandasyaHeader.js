@@ -37,7 +37,6 @@ function ViandasyaHeader(props) {
       >
         <div className="filter" />
         <Container className="header-buyMenu navbar-transparent nav-front">
-          {/* <h1>holaaaaaaaaaaa</h1> */}
           {props.children}
         </Container>
       </div>

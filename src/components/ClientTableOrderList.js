@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table,Container } from 'reactstrap';
+import { Table } from 'reactstrap';
 import Order from './Order';
 
 class ClientTableOrderList extends Component {

@@ -31,6 +31,10 @@ function ViandasNavBar(props) {
     props.history.push("/loadBusiness");
   };
 
+  const redirectPedidos = () => {
+    props.history.push("/client/1/history");
+  };
+
   const redirectMenu = () => {
     props.history.push("/business/1");
   };
@@ -155,6 +159,8 @@ function ViandasNavBar(props) {
                       <DropdownItem onClick={redirectBusiness}>Carga tu Negocio</DropdownItem>
                       <DropdownItem divider/>
                       <DropdownItem onClick={redirectMenu}>Carga Menu</DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem onClick={redirectPedidos}>Historial pedidos</DropdownItem>
                       <DropdownItem divider/>
                       <DropdownItem onClick={redirectGmaps}>Gmaps</DropdownItem>
                       <DropdownItem divider/>

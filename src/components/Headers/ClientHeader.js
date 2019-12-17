@@ -5,15 +5,11 @@ import { useAuth0 } from "../../contexts/auth0-context";
 
 export default class ClientHeader extends Component {
     
-    constructor(props) {
-        super(props);
-    }
-
-    getPhoto = ()=>{useAuth0().user()}
+    getPhoto = ()=>{useAuth0()}
     
     render() {
-        // console.log(useAuth0());
-        console.log(this.props);
+        // console.log(this.getPhoto());
+        // console.log(this.props);
         return (
             <div>
                 {this.props.client === undefined ? 
