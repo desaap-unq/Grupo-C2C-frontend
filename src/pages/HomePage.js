@@ -4,12 +4,13 @@ import { Container } from "reactstrap";
 
 import ViandasNavBar from '../components/Navbars/ViandasNavBar';
 import SearchBars from '../components/search/SearchBars';
+import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 
 export default class HomePage extends Component {
     render() {
         return (
             <>
-                <ViandasNavBar history={this.props.history}/>
+                <ViandasNavBar onChangeLanguage={this.props.onChangeLanguage} history={this.props.history}/>
                 <div
                     className="page-header section-dark"
                     style={{
@@ -23,8 +24,14 @@ export default class HomePage extends Component {
                             <div className="title-brand">
                                 <h1 className="presentation-title">Viandas Ya</h1>
                             </div>
+                            
                             <h2 className="presentation-subtitle text-center mt-0">
-                                Hace tu Pedido y recibilo en tu casa ya!
+                            <FormattedHTMLMessage id="app.text"
+                                defaultMessage="Hace tu Pedido y recibilo en tu casa ya!<br/>Now with {what}!"
+                                description="Welcome header on app main page"
+                                values={{ what: 'react-intl' }}/>
+                                
+                                
                             </h2>
                             
                             <SearchBars/>

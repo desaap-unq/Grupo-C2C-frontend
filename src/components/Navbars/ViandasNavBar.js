@@ -143,6 +143,12 @@ function ViandasNavBar(props) {
                   Login
                 </Button>
               )}
+              <Button
+                    className="btn btn-danger"
+                    onClick={()=>{props.onChangeLanguage("en")}}
+                  >
+                    ingles
+                  </Button>
 
               {/* if there is a user. show user name and logout button */}
               {!isLoading && user && (
