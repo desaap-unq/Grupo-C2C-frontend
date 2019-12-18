@@ -1,13 +1,13 @@
 import React from "react";
 
 import { Container} from "reactstrap";
-import {BusinessHeader} from "./BusinessHeader";
 
 
 
 function ViandasyaHeader(props) {
+  
   let pageHeader = React.createRef();
-
+  console.log(props.children);
   React.useEffect(() => {
     if (window.innerWidth < 991) {
       const updateScroll = () => {
@@ -37,7 +37,7 @@ function ViandasyaHeader(props) {
       >
         <div className="filter" />
         <Container className="header-buyMenu navbar-transparent nav-front">
-          <BusinessHeader business={props.business}></BusinessHeader>
+          {props.children}
         </Container>
       </div>
     </>
