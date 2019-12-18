@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, 
          Route, Redirect, Switch } from 'react-router-dom';
+import * as serviceWorker from './serviceWorker';
 
 import './assets/css/bootstrap.min.css';
 import './assets/css/paper-kit.css';
@@ -10,10 +11,12 @@ import './assets/demo/demo.css';
 
 import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
-import BuyMenuPage from './pages/BuyMenuPage';
+// import BuyMenuPage from './pages/BuyMenuPage';
+import BuyMenuPage2 from './pages/BuyMenuPage2';
 import LoginPage from './pages/LoginPage';
 import LoadBusinessPage from './pages/LoadBusinessPage';
 import LoadMenuPage from './pages/LoadMenuPage';
+import HistoryOrderPage from './pages/HistoryOrderPage';
 
 import { Auth0Provider } from "./contexts/auth0-context";
 import {IntlProvider} from "react-intl";
@@ -31,12 +34,12 @@ const messages = {
 
 const rootElement = document.getElementById("root");
 
-let language1 ;
-const onChangeLanguage = (i) => {console.log(i) ; language1 = i;rende()}; 
+let language ;
+const onChangeLanguage = (i) => {language = i; rende()}; 
 
 const rende = ()=>{ ReactDOM.render(
   
-  <IntlProvider locale={language1} messages={messages[language1]}>
+  <IntlProvider locale={language} messages={messages[language]}>
         
     
   <Auth0Provider>
@@ -45,8 +48,9 @@ const rende = ()=>{ ReactDOM.render(
       <Switch>
         <Route path="/index" render={props => <HomePage onChangeLanguage={onChangeLanguage} {...props} />} />,
         <Route path="/search/:food" render={props => <SearchPage onChangeLanguage={onChangeLanguage} {...props} />} />,
-        <Route path="/business/:id/menu" render={props => <BuyMenuPage onChangeLanguage={onChangeLanguage} {...props} />} />,
+        <Route path="/business/:id/menu" render={props => <BuyMenuPage2 onChangeLanguage={onChangeLanguage} {...props} />} />,
         <Route path="/login" render={props => <LoginPage onChangeLanguage={onChangeLanguage} {...props} />} />,
+        <Route path="/client/:id/history" render={props => <HistoryOrderPage onChangeLanguage={onChangeLanguage} {...props} />} />,
         <Route path="/loadBusiness" render={props => <LoadBusinessPage onChangeLanguage={onChangeLanguage} {...props} />} />,
         <Route path="/business/:id" render={props => <LoadMenuPage onChangeLanguage={onChangeLanguage} {...props} />} />,
         <Redirect to="/index" />
@@ -57,3 +61,4 @@ const rende = ()=>{ ReactDOM.render(
 };
 
 rende();
+serviceWorker.unregister();

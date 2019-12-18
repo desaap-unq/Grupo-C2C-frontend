@@ -33,6 +33,10 @@ function ViandasNavBar(props) {
     props.history.push("/loadBusiness");
   };
 
+  const redirectPedidos = () => {
+    props.history.push("/client/1/history");
+  };
+
   const redirectMenu = () => {
     props.history.push("/business/1");
   };
@@ -40,11 +44,6 @@ function ViandasNavBar(props) {
   const redirectIndx = () => {
     console.log(props);
     props.history.push("/index");
-  };
-
-  const redirectGmaps = () => {
-    console.log(props);
-    props.history.push("/gmaps");
   };
 
   const [dropdownOpen, setOpen] = React.useState(false);
@@ -189,7 +188,7 @@ function ViandasNavBar(props) {
                     />
                         </DropdownItem>
                       <DropdownItem divider/>
-                      <DropdownItem onClick={redirectGmaps}>Gmaps</DropdownItem>
+                      <DropdownItem onClick={redirectPedidos}>Historial pedidos</DropdownItem>
                       <DropdownItem divider/>
                       <DropdownItem onClick={redirectIndx}>
                       <FormattedHTMLMessage id="app.home"
