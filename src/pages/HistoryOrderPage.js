@@ -7,39 +7,48 @@ import ClientHeader from "../components/Headers/ClientHeader";
 export default class HistoryOrderPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {order:[] }
+        this.state = { }
     }
 
     
     componentDidMount() {
+        this.getClient();
         this.getOrders();
     }
 
     getOrders() {
         const { match: { params } } = this.props;
         API.get(`order/${params.id}`)
-            .then(({ data: _orders }) => {
+            .then(
+                ({ data: _orders }) => {this.setState({ orders: _orders })},
+                (error) => {alert(error.message)}
+            );
+    }
 
-                this.setState({ orders: _orders });
-            });
+    getClient() {
+        const { match: { params } } = this.props;
+        API.get(`client/${params.id}`)
+            .then(
+                ({ data: _client }) => {this.setState({ client: _client })},
+                (error) => {alert(error.message)}
+            );
     }
 
 
     render() {
         return (
             <div>
-                {this.state.orders === undefined? <div>Loading</div>:
-            
-                <TemplateWithHeaderPage>
+                {this.state.orders === undefined || this.state.client === null ? 
+                    <div>Loading</div>
+                    :
+                    <TemplateWithHeaderPage>
                     
-                    <ClientHeader client={this.state.orders[0].client}/>
+                        <ClientHeader client={this.state.client}/>
 
-                    <ClientTableOrderList orders={this.state.orders}/>
+                        <ClientTableOrderList orders={this.state.orders}/>
 
-                </TemplateWithHeaderPage>
+                    </TemplateWithHeaderPage>
             }
-                
-
 
             </div>
         );

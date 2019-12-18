@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import {Spinner, Row, Col } from "reactstrap";
-import { useAuth0 } from "../../contexts/auth0-context";
+
 
 
 export default class ClientHeader extends Component {
-    
-    getPhoto = ()=>{useAuth0()}
+        // getPhoto = ()=>{};
     
     render() {
-        // console.log(this.getPhoto());
-        // console.log(this.props);
         return (
             <div>
                 {this.props.client === undefined ? 
@@ -21,7 +18,7 @@ export default class ClientHeader extends Component {
                             alt="..."
                             className="creative-tim-logo"
                             src={require("../../assets/img/faces/erik-lucatero-2.jpg")}
-                            // src={this.props.client.avatar}
+                            // src={this.getPhoto()}
                         />
                     </Col>
                     <Col md="3" className="pl-1">

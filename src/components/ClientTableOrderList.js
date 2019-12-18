@@ -9,11 +9,11 @@ class ClientTableOrderList extends Component {
 		);
 		return(
 			<div>
-			{/* <div className="col-3"></div> */}
-			<div className="offset-md-2 col-md-8">
-				<div className="text-center pb-3 ">
-					<h1 className="mt-3">Historial de Pedidos</h1>
-				</div>
+				{this.props.orders.length > 0 ? (<>
+					<div className="offset-md-2 col-md-8">
+					<div className="text-center pb-3 ">
+						<h1 className="mt-3">Historial de Pedidos</h1>
+					</div>
 
 				<Table striped hover>
 					<tbody>
@@ -31,12 +31,15 @@ class ClientTableOrderList extends Component {
 				</Table>
 
 			</div>
-			<div className="col-3"></div>
-			</div>	
+			<div className="col-3"></div></>)
+			: 
+			(<><h1 className="text-center">No hay Pedidos en el historial</h1></>)	
+		}
+		</div>
+		
 		)
 	}
 }
-
 export default ClientTableOrderList;
 
 
