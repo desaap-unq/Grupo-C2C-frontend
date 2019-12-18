@@ -4,7 +4,7 @@ import { Container } from "reactstrap";
 
 import ViandasNavBar from '../components/Navbars/ViandasNavBar';
 import SearchBars from '../components/search/SearchBars';
-import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
+import {FormattedHTMLMessage} from 'react-intl';
 
 export default class HomePage extends Component {
     render() {
@@ -26,10 +26,10 @@ export default class HomePage extends Component {
                             </div>
                             
                             <h2 className="presentation-subtitle text-center mt-0">
-                            <FormattedHTMLMessage id="app.text"
-                                defaultMessage="Hace tu Pedido y recibilo en tu casa ya!<br/>Now with {what}!"
+                            <FormattedHTMLMessage id="app.subtitle"
+                                defaultMessage="Hace tu Pedido y recibilo en tu casa ya!"
                                 description="Welcome header on app main page"
-                                values={{ what: 'react-intl' }}/>
+                            />
                                 
                                 
                             </h2>
@@ -38,18 +38,9 @@ export default class HomePage extends Component {
                         </Container>
                     </div>
                     <h6 className="category category-absolute">
-                        Designed and coded by{" "}
-                        <a
-                            href="#pablo"
-                            target="_blank"
-                        >
-                            <img
-                                alt="..."
-                                className="creative-tim-logo"
-                                src={require("../assets/img/creative-tim-white-slim2.png")}
-                            />
-                        </a>
-                            
+                    <FormattedHTMLMessage id="app.coded"
+                        defaultMessage="Diseñado y codeado por Grupo C2"
+                    />
 
                     </h6>
 

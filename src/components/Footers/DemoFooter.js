@@ -1,46 +1,23 @@
 import React from "react";
+import {FormattedHTMLMessage} from 'react-intl';
 
-// reactstrap components
 import { Row, Container } from "reactstrap";
 
 function DemoFooter() {
   return (
     <footer className="footer footer-black footer-white">
       <Container>
-        <Row>
-          <nav className="footer-nav">
-            <ul>
-              <li>
-                <a
-                  href="#pablo"
-                  target="_blank"
-                >
-                  Viandas Ya
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#pablo"
-                  target="_blank"
-                >
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#pablo"
-                  target="_blank"
-                >
-                  Licenses
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div className="credits ml-auto">
-            <span className="copyright">
-              © {new Date().getFullYear()}, made with{" "}
-              <i className="fa fa-heart heart" /> by Viandas Ya
-            </span>
+        <Row className="d-flex justify-content-center">
+          <div className="credits">
+          © {new Date().getFullYear()},
+                    <FormattedHTMLMessage id="app.madeWith"
+                        defaultMessage=" Echo con "
+                    />
+                     
+                    <i className="fa fa-heart heart" /> 
+                    <FormattedHTMLMessage id="app.byVianda"
+                        defaultMessage=" por Viandas Ya"
+                    />
           </div>
         </Row>
       </Container>

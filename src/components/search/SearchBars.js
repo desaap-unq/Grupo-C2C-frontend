@@ -10,6 +10,7 @@ import {
 } from "reactstrap";
 
 import {withRouter} from "react-router-dom";
+import {FormattedHTMLMessage} from 'react-intl';
 
 class SearchBars extends Component {
   constructor(props){
@@ -35,7 +36,9 @@ class SearchBars extends Component {
             <InputGroupAddon addonType="append">
               <Input className="form-control" placeholder="Que comemos!" type="text" value={this.state.food} onChange={this.updateInput} ></Input>
               <Button className="btn btn-danger" onClick={this.redirecSearch}>
-                Buscar
+              <FormattedHTMLMessage id="app.search"
+                        defaultMessage="Buscar"
+                    />
               </Button>
             </InputGroupAddon>
           </Col>

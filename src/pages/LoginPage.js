@@ -17,7 +17,7 @@ function LoginPage() {
   });
   return (
     <>
-      <ViandasNavBar/>
+      <ViandasNavBar onChangeLanguage={this.props.onChangeLanguage}/>
       <div
         className="page-header"
         style={{

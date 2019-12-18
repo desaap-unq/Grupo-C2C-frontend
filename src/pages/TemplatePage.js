@@ -6,7 +6,7 @@ export default class TemplatePage extends Component{
     render(){
         return(
             <>
-              <ViandasNavBar  history={this.props.history} />
+              <ViandasNavBar onChangeLanguage={this.props.onChangeLanguage} history={this.props.history} />
               <div
                 className="page-header"
                 style={{

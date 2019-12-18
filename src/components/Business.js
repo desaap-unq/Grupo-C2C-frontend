@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Button} from 'reactstrap';
 import {withRouter} from "react-router-dom";
+import { FormattedHTMLMessage } from 'react-intl';
 
 class Business extends Component {
 
@@ -21,7 +22,9 @@ class Business extends Component {
 				<td>{this.props.business.description}</td>
 				<td>
 					<Button className="btn-round" color="primary" onClick={this.redirectMenus}>
-					  ver productos
+					<FormattedHTMLMessage id="app.seeProducts"
+                                    defaultMessage="ver productos"
+                                />
 					</Button>
 				</td>
 			</tr>
