@@ -44,11 +44,6 @@ function ViandasNavBar(props) {
     props.history.push("/index");
   };
 
-  const redirectGmaps = () => {
-    console.log(props);
-    props.history.push("/gmaps");
-  };
-
   const [dropdownOpen, setOpen] = React.useState(false);
 
   const toggle = () => setOpen(!dropdownOpen);
@@ -161,8 +156,6 @@ function ViandasNavBar(props) {
                       <DropdownItem onClick={redirectMenu}>Carga Menu</DropdownItem>
                       <DropdownItem divider/>
                       <DropdownItem onClick={redirectPedidos}>Historial pedidos</DropdownItem>
-                      <DropdownItem divider/>
-                      <DropdownItem onClick={redirectGmaps}>Gmaps</DropdownItem>
                       <DropdownItem divider/>
                       <DropdownItem onClick={redirectIndx}>Inicio</DropdownItem>
                     </DropdownMenu>

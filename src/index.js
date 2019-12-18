@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, 
          Route, Redirect, Switch } from 'react-router-dom';
+import * as serviceWorker from './serviceWorker';
 
 import './assets/css/bootstrap.min.css';
 import './assets/css/paper-kit.css';
@@ -16,7 +17,6 @@ import BuyMenuPage2 from './pages/BuyMenuPage2';
 import LoginPage from './pages/LoginPage';
 import LoadBusinessPage from './pages/LoadBusinessPage';
 import LoadMenuPage from './pages/LoadMenuPage';
-import App from './App';
 
 import { Auth0Provider } from "./contexts/auth0-context";
 import HistoryOrderPage from './pages/HistoryOrderPage';
@@ -39,9 +39,10 @@ ReactDOM.render(
         <Route path="/loadBusiness" render={props => <LoadBusinessPage {...props} />} />,
         <Route path="/business/:id" render={props => <LoadMenuPage {...props} />} />,
         <Route path="/client/:id/history" render={props => <HistoryOrderPage {...props} />} />,
-        <Route path="/gmaps" render={props => <App {...props} />} />,
         <Redirect to="/index" />
       </Switch>
     </Router>
 
   </Auth0Provider>, rootElement);
+
+serviceWorker.unregister();
