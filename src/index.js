@@ -9,7 +9,6 @@ import './assets/css/paper-kit.css';
 import './assets/css/viandas-ya.css';
 import './assets/demo/demo.css';
 
-import Index from './views/Index';
 import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
 // import BuyMenuPage from './pages/BuyMenuPage';
@@ -17,32 +16,49 @@ import BuyMenuPage2 from './pages/BuyMenuPage2';
 import LoginPage from './pages/LoginPage';
 import LoadBusinessPage from './pages/LoadBusinessPage';
 import LoadMenuPage from './pages/LoadMenuPage';
+import HistoryOrderPage from './pages/HistoryOrderPage';
 
 import { Auth0Provider } from "./contexts/auth0-context";
-import HistoryOrderPage from './pages/HistoryOrderPage';
+import {IntlProvider} from "react-intl";
+
+import messages_de from "./translations/de.json";
+import messages_en from "./translations/en.json";
+
+const messages = {
+    'de': messages_de,
+    'en': messages_en
+};
 
 // BROWSER=chrome npm start | choose browser
 // mvn spring-boot:run
 
 const rootElement = document.getElementById("root");
 
-ReactDOM.render(
+let language ;
+const onChangeLanguage = (i) => {language = i; rende()}; 
+
+const rende = ()=>{ ReactDOM.render(
+  
+  <IntlProvider locale={language} messages={messages[language]}>
+        
+    
   <Auth0Provider>
 
     <Router>
       <Switch>
-        <Route path="/index" render={props => <HomePage {...props} />} />,
-        <Route path="/search/:food" render={props => <SearchPage {...props} />} />,
-        <Route path="/business/:id/menu" render={props => <BuyMenuPage2 {...props} />} />,
-        <Route path="/indexExample" render={props => <Index {...props} />} />,
-        <Route path="/login" render={props => <LoginPage {...props} />} />,
-        <Route path="/loadBusiness" render={props => <LoadBusinessPage {...props} />} />,
-        <Route path="/business/:id" render={props => <LoadMenuPage {...props} />} />,
-        <Route path="/client/:id/history" render={props => <HistoryOrderPage {...props} />} />,
+        <Route path="/index" render={props => <HomePage onChangeLanguage={onChangeLanguage} {...props} />} />,
+        <Route path="/search/:food" render={props => <SearchPage onChangeLanguage={onChangeLanguage} {...props} />} />,
+        <Route path="/business/:id/menu" render={props => <BuyMenuPage2 onChangeLanguage={onChangeLanguage} {...props} />} />,
+        <Route path="/login" render={props => <LoginPage onChangeLanguage={onChangeLanguage} {...props} />} />,
+        <Route path="/client/:id/history" render={props => <HistoryOrderPage onChangeLanguage={onChangeLanguage} {...props} />} />,
+        <Route path="/loadBusiness" render={props => <LoadBusinessPage onChangeLanguage={onChangeLanguage} {...props} />} />,
+        <Route path="/business/:id" render={props => <LoadMenuPage onChangeLanguage={onChangeLanguage} {...props} />} />,
         <Redirect to="/index" />
       </Switch>
     </Router>
 
-  </Auth0Provider>, rootElement);
+  </Auth0Provider> </IntlProvider>, rootElement)
+};
 
+rende();
 serviceWorker.unregister();

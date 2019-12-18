@@ -16,6 +16,8 @@ import {
   Container
 } from "reactstrap";
 
+import {FormattedHTMLMessage} from 'react-intl';
+
 function ViandasNavBar(props) {
   const {isLoading, user, loginWithRedirect, logout} = useAuth0();
 
@@ -135,14 +137,37 @@ function ViandasNavBar(props) {
             
             <NavItem>
 
-              {/* if there is no user. show the login button */}
+            
               <div className="navbar-end">
               {!isLoading && !user && (
                 <Button className="btn btn-danger" onClick={loginWithRedirect}>
-                  Login
+                  <FormattedHTMLMessage id="app.login"
+                        defaultMessage="Ingresar"
+                    />
                 </Button>
               )}
-
+              
+              <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+                    <DropdownToggle  color="secondary">
+                    <FormattedHTMLMessage id="app.language"
+                        defaultMessage="Idioma"
+                    />
+                      
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem onClick={()=>{props.onChangeLanguage("en")}}> 
+                      <FormattedHTMLMessage id="app.english"
+                        defaultMessage="Ingles"
+                      />
+                       </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem onClick={()=>{props.onChangeLanguage("es")}}> 
+                      <FormattedHTMLMessage id="app.spanish"
+                        defaultMessage="Español"
+                      />
+                      </DropdownItem>
+                    </DropdownMenu>
+              </ButtonDropdown>
               {/* if there is a user. show user name and logout button */}
               {!isLoading && user && (
                 <>
@@ -151,20 +176,35 @@ function ViandasNavBar(props) {
                       {user.name}
                     </DropdownToggle>
                     <DropdownMenu>
-                      <DropdownItem onClick={redirectBusiness}>Carga tu Negocio</DropdownItem>
+                      <DropdownItem onClick={redirectBusiness}>
+                      <FormattedHTMLMessage id="app.loadBusiness"
+                        defaultMessage="Carga tu Negocio"
+                    />
+                       </DropdownItem>
                       <DropdownItem divider/>
-                      <DropdownItem onClick={redirectMenu}>Carga Menu</DropdownItem>
+                      <DropdownItem onClick={redirectMenu}>
+                      <FormattedHTMLMessage id="app.loadMenu"
+                        defaultMessage="Carga tu Menu"
+                    />
+                        </DropdownItem>
                       <DropdownItem divider/>
                       <DropdownItem onClick={redirectPedidos}>Historial pedidos</DropdownItem>
                       <DropdownItem divider/>
-                      <DropdownItem onClick={redirectIndx}>Inicio</DropdownItem>
+                      <DropdownItem onClick={redirectIndx}>
+                      <FormattedHTMLMessage id="app.home"
+                        defaultMessage="Inicio"
+                    />
+                       </DropdownItem>
                     </DropdownMenu>
                   </ButtonDropdown>
                   <Button
                     className="btn btn-danger"
                     onClick={() => logout({ returnTo: "http://localhost:3000/index" })}
                   >
-                    Logout
+                    <FormattedHTMLMessage id="app.logout"
+                        defaultMessage="Salir"
+                    />
+                    
                   </Button>
                 </>
               )}

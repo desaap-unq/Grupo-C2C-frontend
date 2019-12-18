@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {Button} from "reactstrap";
 import {ItemMenu} from "../components/ItemMenu";
 import axios from 'axios';
+import { FormattedHTMLMessage } from 'react-intl';
 
 const API_URL = 'http://localhost:8080';
 
@@ -59,7 +60,11 @@ export default class ViandasCart extends Component {
         return (
             <div className="viandas-cart col-md-12">
                 <div className="header-cart row  justify-content-center mt-2 mb-2">
-                    <h4 className="pl-3 mt-0" >Tu Vianda </h4>
+                    <h4 className="pl-3 mt-0" >
+                    <FormattedHTMLMessage id="app.yourOrder"
+                                    defaultMessage="Tu Vianda"
+                    />
+                         </h4>
 
                 </div>
                 {this.props.cart.length === 0 ? 
@@ -81,7 +86,11 @@ export default class ViandasCart extends Component {
                         </div>
                         
                         <div className="row">
-                            <Button className="offset-2 col-8 mb-3 mt-4 btn-danger" onClick={this.buyMenus}>Continuar</Button>
+                            <Button className="offset-2 col-8 mb-3 mt-4 btn-danger" onClick={this.buyMenus}>
+                            <FormattedHTMLMessage id="app.continue"
+                                    defaultMessage="Continuar"
+                    />
+                                </Button>
                         </div>
                     
                     </div>)}

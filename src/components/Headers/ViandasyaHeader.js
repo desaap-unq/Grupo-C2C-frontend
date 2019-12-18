@@ -28,8 +28,6 @@ function ViandasyaHeader(props) {
         style={{
           backgroundImage:
             "url(" + require("../../assets/img/big-food-infographics-free-royalty3533.jpg") + ")"
-          // "url(" + require("../../assets/img/cortar-rodajas-deliciosa-pizza-fresca-pepperoni_79782-17.jpg") + ")"
-          // "url(" + require("../../assets/img/pizza-salchichones-sabrosa-fondo-concreto-negro_79782-102.jpg") + ")"
         }}
         className="page-header page-header-xs"
         data-parallax={true}

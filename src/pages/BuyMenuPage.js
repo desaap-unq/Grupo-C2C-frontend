@@ -84,7 +84,7 @@ export default class BuyMenuPage extends Component {
     render() {
         return (
             <div>
-                <ViandasNavBar history={this.props.history}/>
+                <ViandasNavBar onChangeLanguage={this.props.onChangeLanguage} history={this.props.history}/>
                 <ViandasyaHeader business={this.state.business} />
                 <div className="row">
                     <div className="col-md-2">

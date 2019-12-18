@@ -7,6 +7,8 @@ import {
 } from 'reactstrap';
 import API from "../../utils/api";
 
+import {FormattedHTMLMessage} from 'react-intl';
+
 class LoadMenuForm extends Component {
 
   constructor(props) {
@@ -46,10 +48,18 @@ class LoadMenuForm extends Component {
     return (
       <>
         <div className="col-8 col-sm-8 col-lg-6 col-xl-4 col-md-6 business-load-form background-form  ">
-          <h2 className="text-center mt-3 font-weight-bold">Carga tu menu</h2>  
+          <h2 className="text-center mt-3 font-weight-bold">
+          <FormattedHTMLMessage id="app.loadMenu"
+                        defaultMessage="Carga tu menu"
+                    />
+            </h2>  
           <Form className="mt-2" onSubmit={this.handleSubmit} autoComplete="none">
             <FormGroup>
-              <Label for="name">Nombre de menu</Label>
+              <Label for="name">
+              <FormattedHTMLMessage id="app.menuName"
+                        defaultMessage="Nombre de menu"
+                    />
+                </Label>
               <Input
                 type="text"
                 name="name"
@@ -61,7 +71,11 @@ class LoadMenuForm extends Component {
             <Row>
               <Col md={8}>
                 <FormGroup>
-                  <Label for="categoria">Categoria</Label>
+                  <Label for="categoria">
+                  <FormattedHTMLMessage id="app.category"
+                        defaultMessage="Categoria"
+                    />
+                    </Label>
                   <Input type="select"
                          name="categoria"
                          id="categoria"
@@ -78,7 +92,11 @@ class LoadMenuForm extends Component {
               </Col>
               <Col md={4}>
                 <FormGroup>
-                  <Label for="price">Precio</Label>
+                  <Label for="price">
+                  <FormattedHTMLMessage id="app.price"
+                        defaultMessage="Precio"
+                    />
+                    </Label>
                   <Input type="number"
                     name="price"
                     id="price"
@@ -87,7 +105,11 @@ class LoadMenuForm extends Component {
               </Col>
             </Row>
             <FormGroup>
-              <Label for="description">Descripcion</Label>
+              <Label for="description">
+              <FormattedHTMLMessage id="app.description"
+                        defaultMessage="Descripcion"
+                    />
+                </Label>
               <Input type="textarea"
                 name="description"
                 id="description"
@@ -95,7 +117,11 @@ class LoadMenuForm extends Component {
             </FormGroup>
             <div className="row">
             <FormGroup className="col-6">
-              <Label for="startDate">Fech de inicio</Label>
+              <Label for="startDate">
+              <FormattedHTMLMessage id="app.startDate"
+                        defaultMessage="Fecha de inicio"
+                    />
+                </Label>
               <Input
                 type="date"
                 name="startDate"
@@ -103,7 +129,11 @@ class LoadMenuForm extends Component {
                 onChange={this.handleChange} />
             </FormGroup>
             <FormGroup className="col-6">
-              <Label for="dueDate">Fecha de finalizacion</Label>
+              <Label for="dueDate">
+              <FormattedHTMLMessage id="app.endDate"
+                        defaultMessage="Fecha de finalizacion"
+                    />
+                </Label>
               <Input type="date"
                 name="dueDate"
                 id="dueDate"
@@ -113,31 +143,48 @@ class LoadMenuForm extends Component {
             
             <Col>
               <FormGroup className="row pt-3">
-                  <Label className="pl-0 col-md-3" for="minimumQuantity">Cantidad minima</Label>
+                  <Label className="pl-0 col-md-3" for="minimumQuantity">
+                  <FormattedHTMLMessage id="app.minimumQuantity"
+                        defaultMessage="Cantidad minima"
+                    />
+                    </Label>
                   <Input className="col-md-3" type="number"
                     name="minimumQuantity"
                     id="minimumQuantity"
                     onChange={this.handleChange} />
-                  <Label className="col-md-3 " for="minimumQuantityPrice">Precio</Label>
+                  <Label className="col-md-3 " for="minimumQuantityPrice">
+                  <FormattedHTMLMessage id="app.price"
+                        defaultMessage="Precio"
+                    /></Label>
                   <Input className="col-md-3" type="number"
                     name="minimumQuantityPrice"
                     id="minimumQuantityPrice"
                     onChange={this.handleChange} />
               </FormGroup>
               <FormGroup className="row">
-                  <Label className="pl-0 col-md-3" for="minimumQuantityTwo ">cantidad minima 2</Label>
+                  <Label className="pl-0 col-md-3" for="minimumQuantityTwo ">
+                  <FormattedHTMLMessage id="app.minimumQuantityTwo"
+                        defaultMessage="cantidad minima 2"
+                    />
+                    </Label>
                   <Input className="col-md-3" type="number"
                     name="minimumQuantityTwo "
                     id="minimumQuantityTwo "
                     onChange={this.handleChange} />
-                  <Label className="col-md-3" for="minimumQuantityPriceTwo">Precio</Label>
+                  <Label className="col-md-3" for="minimumQuantityPriceTwo"><FormattedHTMLMessage id="app.price"
+                        defaultMessage="Precio"
+                    /></Label>
                   <Input className="col-md-3" type="number"
                     name="minimumQuantityPriceTwo"
                     id="minimumQuantityPriceTwo"
                     onChange={this.handleChange} />
               </FormGroup>
               <FormGroup className="row">
-                  <Label className="pl-0 col-md-9" for="maximumAmountSalesPerDay ">Cantidad maxima de ventas diarias</Label>
+                  <Label className="pl-0 col-md-9" for="maximumAmountSalesPerDay ">
+                  <FormattedHTMLMessage id="app.maximumAmountSalesPerDay"
+                        defaultMessage="Cantidad maxima de ventas diarias"
+                    />
+                    </Label>
                   <Input className="col-md-3" type="number"
                     name="maximumAmountSalesPerDay "
                     id="maximumAmountSalesPerDay "
@@ -145,7 +192,11 @@ class LoadMenuForm extends Component {
               </FormGroup>
             </Col>
 
-            <Button className="btn-danger mt-3 mb-3" >Enviar</Button>
+            <Button className="btn-danger mt-3 mb-3" >
+            <FormattedHTMLMessage id="app.send"
+                        defaultMessage="Enviar"
+                    />
+              </Button>
           </Form>
         </div>
       </>

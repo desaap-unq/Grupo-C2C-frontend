@@ -8,6 +8,7 @@ import {
 } from 'reactstrap';
 import API from "../../utils/api";
 import BusinessDto from "../../utils/api";
+import {FormattedHTMLMessage} from 'react-intl';
 
 const SERVICE_URL = `business`;
 
@@ -61,10 +62,18 @@ class FormBusiness extends Component {
     return (
       <>
         <div className="col-8 col-sm-8 col-lg-6 col-xl-4 col-md-6 business-load-form background-form  ">
-          <h2 className="text-center mt-3 font-weight-bold">Carga tu negocio</h2>  
+          <h2 className="text-center mt-3 font-weight-bold">
+          <FormattedHTMLMessage id="app.loadBusiness"
+                        defaultMessage="Carga tu negocio"
+                    />
+            </h2>  
           <Form className="mt-2" onSubmit={this.handleSubmit}>
             <FormGroup>
-              <Label for="name">Nombre de tu negocio</Label>
+              <Label for="name">
+              <FormattedHTMLMessage id="app.businessName"
+                        defaultMessage="Nombre de tu negocio"
+                    />
+                </Label>
               <Input
                 type="text"
                 name="name"

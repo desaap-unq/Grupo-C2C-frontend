@@ -4,12 +4,13 @@ import { Container } from "reactstrap";
 
 import ViandasNavBar from '../components/Navbars/ViandasNavBar';
 import SearchBars from '../components/search/SearchBars';
+import {FormattedHTMLMessage} from 'react-intl';
 
 export default class HomePage extends Component {
     render() {
         return (
             <>
-                <ViandasNavBar history={this.props.history}/>
+                <ViandasNavBar onChangeLanguage={this.props.onChangeLanguage} history={this.props.history}/>
                 <div
                     className="page-header section-dark"
                     style={{
@@ -23,26 +24,23 @@ export default class HomePage extends Component {
                             <div className="title-brand">
                                 <h1 className="presentation-title">Viandas Ya</h1>
                             </div>
+                            
                             <h2 className="presentation-subtitle text-center mt-0">
-                                Hace tu Pedido y recibilo en tu casa ya!
+                            <FormattedHTMLMessage id="app.subtitle"
+                                defaultMessage="Hace tu Pedido y recibilo en tu casa ya!"
+                                description="Welcome header on app main page"
+                            />
+                                
+                                
                             </h2>
                             
                             <SearchBars/>
                         </Container>
                     </div>
                     <h6 className="category category-absolute">
-                        Designed and coded by{" "}
-                        <a
-                            href="#pablo"
-                            target="_blank"
-                        >
-                            <img
-                                alt="..."
-                                className="creative-tim-logo"
-                                src={require("../assets/img/creative-tim-white-slim2.png")}
-                            />
-                        </a>
-                            
+                    <FormattedHTMLMessage id="app.coded"
+                        defaultMessage="Diseñado y codeado por Grupo C2"
+                    />
 
                     </h6>
 

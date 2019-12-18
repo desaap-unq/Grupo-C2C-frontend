@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import Business from './Business';
+import {FormattedHTMLMessage} from 'react-intl';
 
 class BusinessList extends Component {
 	render() {
@@ -12,8 +13,17 @@ class BusinessList extends Component {
 				<tbody>
 					<tr>
 						<th>Img</th>
-						<th>Name</th>
-						<th>Description</th>
+						<th>
+						
+						<FormattedHTMLMessage id="app.name"
+                        defaultMessage="Nombre"
+                    />
+							</th>
+						<th>
+						<FormattedHTMLMessage id="app.description"
+                        defaultMessage="Descripcion"
+                    />
+							</th>
 						<th>*</th>
 					</tr>
 					{businesses}
