@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import ViandasNavBar from "../components/Navbars/ViandasNavBar.js";
-import ViandasyaHeader from "../components/Headers/ViandasyaHeader.js";
+import {BusinessHeader} from "../components/Headers/BusinessHeader.js";
 import ViandasyaMenus from "../components/body/ViandasyaMenus.js";
 import ViandasCart from "../components/ViandasCart.js";
 import API from "../utils/api";
+import TemplateWithHeaderPage from "./TemplateWithHeaderPage.js";
 
-export default class BuyMenuPage extends Component {
+export default class BuyMenuPage2 extends Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -84,24 +84,29 @@ export default class BuyMenuPage extends Component {
     render() {
         return (
             <div>
-                <ViandasNavBar onChangeLanguage={this.props.onChangeLanguage} history={this.props.history}/>
-                <ViandasyaHeader business={this.state.business} />
-                <div className="row">
-                    <div className="col-md-2">
-                        
-                    </div>
-                    <div className="col-md-6">
-                        <ViandasyaMenus  menus={this.state.menus}  addToCart={this.addToCart}/>
+                <TemplateWithHeaderPage>
+                    
+                    <BusinessHeader business={this.state.business}/>
 
-                    </div>
-                    <div className="col-md-3 cart-responvive ">
-                        <ViandasCart cart={this.state.cart } clearCart={this.clearCart} removeItems={this.removeItem}/>
-                    </div>
-                    <div className="col-md-1">
-                        
+                    <div className="row">
+                        <div className="col-md-2">
+                            
+                        </div>
+                        <div className="col-md-6">
+                            <ViandasyaMenus  menus={this.state.menus}  addToCart={this.addToCart}/>
+
+                        </div>
+                        <div className="col-md-3 cart-responvive ">
+                            <ViandasCart cart={this.state.cart } clearCart={this.clearCart} removeItems={this.removeItem}/>
+                        </div>
+                        <div className="col-md-1">
+                        </div>
+                            
                     </div>
 
-                </div>
+                </TemplateWithHeaderPage>
+                
+
 
             </div>
         );

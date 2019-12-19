@@ -1,7 +1,7 @@
 import React from "react";
 
-// reactstrap components
 import { Container } from "reactstrap";
+import {FormattedHTMLMessage} from 'react-intl';
 
 function SearchPageHeader(props) {
   let pageHeader = React.createRef();
@@ -35,7 +35,10 @@ function SearchPageHeader(props) {
 
         <Container className="header-searchPage search-result">
           <h2>
-            {businesses} locales para una direccion
+            {businesses} 
+          <FormattedHTMLMessage id="app.headerBusines"
+            defaultMessage=" Locales para una busqueda"
+            />
           </h2>
 
         </Container>

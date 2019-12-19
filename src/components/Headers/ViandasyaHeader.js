@@ -1,13 +1,13 @@
 import React from "react";
 
 import { Container} from "reactstrap";
-import {BusinessHeader} from "./BusinessHeader";
 
 
 
 function ViandasyaHeader(props) {
+  
   let pageHeader = React.createRef();
-
+  console.log(props.children);
   React.useEffect(() => {
     if (window.innerWidth < 991) {
       const updateScroll = () => {
@@ -28,8 +28,6 @@ function ViandasyaHeader(props) {
         style={{
           backgroundImage:
             "url(" + require("../../assets/img/big-food-infographics-free-royalty3533.jpg") + ")"
-          // "url(" + require("../../assets/img/cortar-rodajas-deliciosa-pizza-fresca-pepperoni_79782-17.jpg") + ")"
-          // "url(" + require("../../assets/img/pizza-salchichones-sabrosa-fondo-concreto-negro_79782-102.jpg") + ")"
         }}
         className="page-header page-header-xs"
         data-parallax={true}
@@ -37,7 +35,7 @@ function ViandasyaHeader(props) {
       >
         <div className="filter" />
         <Container className="header-buyMenu navbar-transparent nav-front">
-          <BusinessHeader business={props.business}></BusinessHeader>
+          {props.children}
         </Container>
       </div>
     </>

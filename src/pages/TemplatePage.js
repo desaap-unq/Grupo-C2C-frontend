@@ -4,9 +4,11 @@ import ViandasYaFooter from "../components/Footers/ViandasYaFooter";
 
 export default class TemplatePage extends Component{
     render(){
+        console.log(this.props.children.business);
         return(
+            
             <>
-              <ViandasNavBar  history={this.props.history} />
+              <ViandasNavBar onChangeLanguage={this.props.onChangeLanguage} history={this.props.history} />
               <div
                 className="page-header"
                 style={{
@@ -15,6 +17,7 @@ export default class TemplatePage extends Component{
               >
               <div className="filter" />
               {this.props.children}
+              {/* {React.Children.toArray(this.props.children)[1]} */}
               <ViandasYaFooter/>
               </div>
             </>

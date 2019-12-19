@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from "reactstrap";
 import ViandasNavBar from '../components/Navbars/ViandasNavBar';
 import SearchPageHeader from "../components/Headers/SearchPageHeader.js";
-import DemoFooter from "../components/Footers/DemoFooter.js";
+import DemoFooter from "../components/Footers/DemoFooter";
 import BusinessList from '../components/BusinessList';
 import API from "../utils/api";
 
@@ -24,8 +24,6 @@ class SearchPage extends Component {
       
     API.get(`${SERVICE_URL}/search/${params.food}`)
          .then(({ data: business }) => {
-            console.log('business', business);
-
           this.setState({ businesses: business });
     });
   }
@@ -41,7 +39,7 @@ class SearchPage extends Component {
   render() {
   return (
       <>
-        <ViandasNavBar history={this.props.history}/>
+        <ViandasNavBar onChangeLanguage={this.props.onChangeLanguage} history={this.props.history}/>
         <SearchPageHeader businesses={this.state.businesses} />
         <div className="main">
           <div className="section text-center">
@@ -54,7 +52,7 @@ class SearchPage extends Component {
             </Container>
           
           </div>
-          <DemoFooter />
+          <DemoFooter/>
         </div>
       </>
     );

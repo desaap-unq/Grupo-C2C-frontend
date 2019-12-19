@@ -8,6 +8,7 @@ export default class LoadMenuPage extends Component{
             <>
              <TemplatePage history={this.props.history}>
                  <LoadMenuForm props={this.props}/>
+                 <div>Holaaaaa</div>
              </TemplatePage>
             </>
           
