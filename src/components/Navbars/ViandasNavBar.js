@@ -50,6 +50,10 @@ function ViandasNavBar(props) {
 
   const toggle = () => setOpen(!dropdownOpen);
 
+  const [drpdwnOpen, setUp] = React.useState(false);
+
+  const tggl = () => setUp(!drpdwnOpen);
+
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
@@ -147,7 +151,7 @@ function ViandasNavBar(props) {
                 </Button>
               )}
               
-              <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+              <ButtonDropdown isOpen={drpdwnOpen} toggle={tggl}>
                     <DropdownToggle  color="secondary">
                     <FormattedHTMLMessage id="app.language"
                         defaultMessage="Idioma"

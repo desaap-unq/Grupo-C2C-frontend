@@ -84,7 +84,7 @@ export default class BuyMenuPage2 extends Component {
     render() {
         return (
             <div>
-                <TemplateWithHeaderPage>
+                <TemplateWithHeaderPage history={this.props.history}>
                     
                     <BusinessHeader business={this.state.business}/>
 

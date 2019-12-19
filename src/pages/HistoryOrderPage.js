@@ -41,7 +41,7 @@ export default class HistoryOrderPage extends Component {
                 {this.state.orders === undefined || this.state.client === null ? 
                     <div>Loading</div>
                     :
-                    <TemplateWithHeaderPage>
+                    <TemplateWithHeaderPage history={this.props.history}>
                     
                         <ClientHeader client={this.state.client}/>
 
